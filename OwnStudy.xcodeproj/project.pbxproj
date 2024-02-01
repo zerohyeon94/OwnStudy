@@ -15,7 +15,7 @@
 		CFD014A92B4BCAFD00E15BAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFD014A82B4BCAFD00E15BAC /* Assets.xcassets */; };
 		CFD014AC2B4BCAFD00E15BAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFD014AA2B4BCAFD00E15BAC /* LaunchScreen.storyboard */; };
 		CFD014B72B4BD86C00E15BAC /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD014B62B4BD86C00E15BAC /* HomeModel.swift */; };
-		CFD014B92B4BD87600E15BAC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD014B82B4BD87600E15BAC /* HomeView.swift */; };
+		CFD014B92B4BD87600E15BAC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD014B82B4BD87600E15BAC /* HomeViewController.swift */; };
 		CFD014BB2B4BD88000E15BAC /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD014BA2B4BD88000E15BAC /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +30,7 @@
 		CFD014AB2B4BCAFD00E15BAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CFD014AD2B4BCAFD00E15BAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFD014B62B4BD86C00E15BAC /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
-		CFD014B82B4BD87600E15BAC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		CFD014B82B4BD87600E15BAC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CFD014BA2B4BD88000E15BAC /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,9 +64,9 @@
 		CFD0149B2B4BCAFC00E15BAC /* OwnStudy */ = {
 			isa = PBXGroup;
 			children = (
+				CFD014B32B4BD47F00E15BAC /* Model */,
 				CFD014B52B4BD49100E15BAC /* ViewModel */,
 				CFD014B42B4BD48900E15BAC /* View */,
-				CFD014B32B4BD47F00E15BAC /* Model */,
 				CFD0149C2B4BCAFC00E15BAC /* AppDelegate.swift */,
 				CFD0149E2B4BCAFC00E15BAC /* SceneDelegate.swift */,
 				CFD014A02B4BCAFC00E15BAC /* ViewController.swift */,
@@ -90,7 +90,7 @@
 		CFD014B42B4BD48900E15BAC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CFD014B82B4BD87600E15BAC /* HomeView.swift */,
+				CFD014B82B4BD87600E15BAC /* HomeViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -178,7 +178,7 @@
 				CFD0149D2B4BCAFC00E15BAC /* AppDelegate.swift in Sources */,
 				CFD014BB2B4BD88000E15BAC /* HomeViewModel.swift in Sources */,
 				CFD014A72B4BCAFC00E15BAC /* OwnStudy.xcdatamodeld in Sources */,
-				CFD014B92B4BD87600E15BAC /* HomeView.swift in Sources */,
+				CFD014B92B4BD87600E15BAC /* HomeViewController.swift in Sources */,
 				CFD014B72B4BD86C00E15BAC /* HomeModel.swift in Sources */,
 				CFD0149F2B4BCAFC00E15BAC /* SceneDelegate.swift in Sources */,
 			);
