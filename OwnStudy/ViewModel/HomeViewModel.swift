@@ -11,13 +11,14 @@ import Foundation
 // 각 항목에 대한 데이터를 가지고 있고, 뷰에서 필요한 처리 로직을 정의
 class HomeViewModel {
     var quizData: Quiz
-    var csInfoData: CSInfo
-    var swiftSyntaxData: SwiftSyntax
-    var techInterviewData: TechInterview
-    var codingTestData: CodingTest
-    var projectInfoData: ProjectInfo
+//    var csInfoData: CSInfo
+//    var swiftSyntaxData: SwiftSyntax
+//    var techInterviewData: TechInterview
+//    var codingTestData: CodingTest
+//    var projectInfoData: ProjectInfo
 
     init() {
         // 데이터 초기화 및 필요한 로직 수행...
+        quizData = Quiz(title: "퀴즈", question: "프로젝트의 이름은?", answer: "온스터디")
     }
 }

@@ -9,7 +9,8 @@ import Foundation
 // 홈 화면에 표시되는 항목에 대한 데이터를 담당
 struct Quiz {
     var title: String
-    // 추가 필요한 프로퍼티들...
+    var question: String
+    var answer: String
 }
 
 struct CSInfo {
