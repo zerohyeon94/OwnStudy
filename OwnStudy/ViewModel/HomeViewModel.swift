@@ -17,7 +17,8 @@ class HomeViewModel {
 //    var codingTestData: CodingTest
 //    var projectInfoData: ProjectInfo
     
-    var cellHeightSize: [CGFloat] = [210, 100, 100, 100, 100, 100]
+    var cellType: [String] = ["quiz"]
+    var cellHeightSize: [CGFloat] = [210]
 
     init() {
         // 데이터 초기화 및 필요한 로직 수행...

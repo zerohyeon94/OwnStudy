@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		CF3F46782B6CDBE60064777F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CF3F46772B6CDBE60064777F /* SnapKit */; };
 		CF3F467A2B6CDBE60064777F /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = CF3F46792B6CDBE60064777F /* SnapKit-Dynamic */; };
+		CF3F467C2B6CE1180064777F /* QuizCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3F467B2B6CE1180064777F /* QuizCell.swift */; };
+		CF3F46852B6CEEF70064777F /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3F46842B6CEEF70064777F /* AppTheme.swift */; };
 		CFD0149D2B4BCAFC00E15BAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD0149C2B4BCAFC00E15BAC /* AppDelegate.swift */; };
 		CFD0149F2B4BCAFC00E15BAC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD0149E2B4BCAFC00E15BAC /* SceneDelegate.swift */; };
 		CFD014A72B4BCAFC00E15BAC /* OwnStudy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CFD014A52B4BCAFC00E15BAC /* OwnStudy.xcdatamodeld */; };
@@ -20,6 +22,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF3F467B2B6CE1180064777F /* QuizCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCell.swift; sourceTree = "<group>"; };
+		CF3F467E2B6CEDFF0064777F /* SpoqaHanSansNeo-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SpoqaHanSansNeo-Medium.ttf"; path = "../../../DearMyFriend 프로젝트/DearMyFriend/DearMyFriend/DearMyFriend/Font/SpoqaHanSansNeo-Medium.ttf"; sourceTree = "<group>"; };
+		CF3F467F2B6CEDFF0064777F /* SpoqaHanSansNeo-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SpoqaHanSansNeo-Thin.ttf"; path = "../../../DearMyFriend 프로젝트/DearMyFriend/DearMyFriend/DearMyFriend/Font/SpoqaHanSansNeo-Thin.ttf"; sourceTree = "<group>"; };
+		CF3F46802B6CEDFF0064777F /* SpoqaHanSansNeo-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SpoqaHanSansNeo-Light.ttf"; path = "../../../DearMyFriend 프로젝트/DearMyFriend/DearMyFriend/DearMyFriend/Font/SpoqaHanSansNeo-Light.ttf"; sourceTree = "<group>"; };
+		CF3F46812B6CEDFF0064777F /* SpoqaHanSansNeo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SpoqaHanSansNeo-Bold.ttf"; path = "../../../DearMyFriend 프로젝트/DearMyFriend/DearMyFriend/DearMyFriend/Font/SpoqaHanSansNeo-Bold.ttf"; sourceTree = "<group>"; };
+		CF3F46822B6CEDFF0064777F /* SpoqaHanSansNeo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SpoqaHanSansNeo-Regular.ttf"; path = "../../../DearMyFriend 프로젝트/DearMyFriend/DearMyFriend/DearMyFriend/Font/SpoqaHanSansNeo-Regular.ttf"; sourceTree = "<group>"; };
+		CF3F46842B6CEEF70064777F /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		CFD014992B4BCAFC00E15BAC /* OwnStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OwnStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFD0149C2B4BCAFC00E15BAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFD0149E2B4BCAFC00E15BAC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +54,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF3F467D2B6CEDE40064777F /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				CF3F46812B6CEDFF0064777F /* SpoqaHanSansNeo-Bold.ttf */,
+				CF3F46802B6CEDFF0064777F /* SpoqaHanSansNeo-Light.ttf */,
+				CF3F467E2B6CEDFF0064777F /* SpoqaHanSansNeo-Medium.ttf */,
+				CF3F46822B6CEDFF0064777F /* SpoqaHanSansNeo-Regular.ttf */,
+				CF3F467F2B6CEDFF0064777F /* SpoqaHanSansNeo-Thin.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		CF3F46832B6CEE0F0064777F /* AppSetup */ = {
+			isa = PBXGroup;
+			children = (
+				CFD0149C2B4BCAFC00E15BAC /* AppDelegate.swift */,
+				CFD0149E2B4BCAFC00E15BAC /* SceneDelegate.swift */,
+				CF3F46842B6CEEF70064777F /* AppTheme.swift */,
+			);
+			path = AppSetup;
+			sourceTree = "<group>";
+		};
 		CFD014902B4BCAFC00E15BAC = {
 			isa = PBXGroup;
 			children = (
@@ -64,11 +95,11 @@
 		CFD0149B2B4BCAFC00E15BAC /* OwnStudy */ = {
 			isa = PBXGroup;
 			children = (
+				CF3F46832B6CEE0F0064777F /* AppSetup */,
+				CF3F467D2B6CEDE40064777F /* Font */,
 				CFD014B32B4BD47F00E15BAC /* Model */,
 				CFD014B52B4BD49100E15BAC /* ViewModel */,
 				CFD014B42B4BD48900E15BAC /* View */,
-				CFD0149C2B4BCAFC00E15BAC /* AppDelegate.swift */,
-				CFD0149E2B4BCAFC00E15BAC /* SceneDelegate.swift */,
 				CFD014A82B4BCAFD00E15BAC /* Assets.xcassets */,
 				CFD014AA2B4BCAFD00E15BAC /* LaunchScreen.storyboard */,
 				CFD014AD2B4BCAFD00E15BAC /* Info.plist */,
@@ -89,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				CFD014B82B4BD87600E15BAC /* HomeViewController.swift */,
+				CF3F467B2B6CE1180064777F /* QuizCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -182,6 +214,8 @@
 				CFD014BB2B4BD88000E15BAC /* HomeViewModel.swift in Sources */,
 				CFD014A72B4BCAFC00E15BAC /* OwnStudy.xcdatamodeld in Sources */,
 				CFD014B92B4BD87600E15BAC /* HomeViewController.swift in Sources */,
+				CF3F467C2B6CE1180064777F /* QuizCell.swift in Sources */,
+				CF3F46852B6CEEF70064777F /* AppTheme.swift in Sources */,
 				CFD014B72B4BD86C00E15BAC /* HomeModel.swift in Sources */,
 				CFD0149F2B4BCAFC00E15BAC /* SceneDelegate.swift in Sources */,
 			);
