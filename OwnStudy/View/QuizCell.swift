@@ -8,32 +8,47 @@
 import Foundation
 import UIKit
 
-class QuizCell: UICollectionViewCell {
+class QuizCell: HomeCommonCell {
     static let cellIdentifier = "QuizCell"
     
     var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = ThemeColor.deepTextColor
-        label.font = UIFont(name: "SpoqaHanSansNeo-Bold", size: 10)
+        label.textColor = AppTheme.Color.text
+        label.font = AppTheme.Font.title
         return label
     }()
+    
+    var questionLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = AppTheme.Color.text
+        label.font = AppTheme.Font.body
+        return label
+    }()
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        layer.borderColor = UIColor.black.cgColor
-        layer.borderWidth = 1.0
-        layer.cornerRadius = 10.0
-        layer.masksToBounds = true
-        
-        // 셀 내부의 UI 요소들 초기화
-        titleLabel = UILabel(frame: contentView.bounds)
-        titleLabel.textAlignment = .center
-        titleLabel.textColor = .black
-        
+        autoLayout()
+    }
+    
+    func autoLayout() {
         // 셀에 UI 요소 추가
         contentView.addSubview(titleLabel)
+        contentView.addSubview(questionLabel)
+        
+        titleLabel.snp.makeConstraints { make in
+            //            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0))
+            make.top.equalToSuperview().offset(10)
+            make.left.equalToSuperview().offset(10)
+        }
+        
+        questionLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(10)
+            make.left.equalToSuperview().offset(10)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

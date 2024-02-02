@@ -11,6 +11,7 @@
 		CF3F467A2B6CDBE60064777F /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = CF3F46792B6CDBE60064777F /* SnapKit-Dynamic */; };
 		CF3F467C2B6CE1180064777F /* QuizCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3F467B2B6CE1180064777F /* QuizCell.swift */; };
 		CF3F46852B6CEEF70064777F /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3F46842B6CEEF70064777F /* AppTheme.swift */; };
+		CF3F46892B6CF56F0064777F /* HomeCommonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3F46882B6CF56F0064777F /* HomeCommonCell.swift */; };
 		CFD0149D2B4BCAFC00E15BAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD0149C2B4BCAFC00E15BAC /* AppDelegate.swift */; };
 		CFD0149F2B4BCAFC00E15BAC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD0149E2B4BCAFC00E15BAC /* SceneDelegate.swift */; };
 		CFD014A72B4BCAFC00E15BAC /* OwnStudy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CFD014A52B4BCAFC00E15BAC /* OwnStudy.xcdatamodeld */; };
@@ -29,6 +30,7 @@
 		CF3F46812B6CEDFF0064777F /* SpoqaHanSansNeo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SpoqaHanSansNeo-Bold.ttf"; path = "../../../DearMyFriend 프로젝트/DearMyFriend/DearMyFriend/DearMyFriend/Font/SpoqaHanSansNeo-Bold.ttf"; sourceTree = "<group>"; };
 		CF3F46822B6CEDFF0064777F /* SpoqaHanSansNeo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SpoqaHanSansNeo-Regular.ttf"; path = "../../../DearMyFriend 프로젝트/DearMyFriend/DearMyFriend/DearMyFriend/Font/SpoqaHanSansNeo-Regular.ttf"; sourceTree = "<group>"; };
 		CF3F46842B6CEEF70064777F /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		CF3F46882B6CF56F0064777F /* HomeCommonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCommonCell.swift; sourceTree = "<group>"; };
 		CFD014992B4BCAFC00E15BAC /* OwnStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OwnStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFD0149C2B4BCAFC00E15BAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFD0149E2B4BCAFC00E15BAC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			children = (
 				CFD014B82B4BD87600E15BAC /* HomeViewController.swift */,
 				CF3F467B2B6CE1180064777F /* QuizCell.swift */,
+				CF3F46882B6CF56F0064777F /* HomeCommonCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				CFD0149D2B4BCAFC00E15BAC /* AppDelegate.swift in Sources */,
 				CFD014BB2B4BD88000E15BAC /* HomeViewModel.swift in Sources */,
 				CFD014A72B4BCAFC00E15BAC /* OwnStudy.xcdatamodeld in Sources */,
+				CF3F46892B6CF56F0064777F /* HomeCommonCell.swift in Sources */,
 				CFD014B92B4BD87600E15BAC /* HomeViewController.swift in Sources */,
 				CF3F467C2B6CE1180064777F /* QuizCell.swift in Sources */,
 				CF3F46852B6CEEF70064777F /* AppTheme.swift in Sources */,

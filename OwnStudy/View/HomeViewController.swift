@@ -54,14 +54,30 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     // UICollectionViewDataSource 메서드 구현
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.cellType.count // 셀 개수
+        return viewModel.cellTypes.count // 셀 개수
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: QuizCell.cellIdentifier, for: indexPath) as! QuizCell
+        let cellType = viewModel.cellTypes[indexPath.row]
+        let cellIdentifier = cellType.cellIdentifier
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
+        
         // 각 셀에 대한 데이터 설정
-        cell.titleLabel.text = "Title \(indexPath.item + 1)"
-        cell.backgroundColor = colorArray[indexPath.item]
+        switch cellType {
+        case .quiz:
+            if let quizCell = cell as? QuizCell {
+                quizCell.titleLabel.text = "Title \(indexPath.item + 1)"
+                quizCell.questionLabel.text = "question title"
+                quizCell.backgroundColor = colorArray[indexPath.item]
+            }
+//        case .csInfo:
+            // CSInfoCell에 대한 설정...
+//        case .swiftSyntax:
+            // SwiftSyntaxCell에 대한 설정...
+            // 추가적인 셀 유형들...
+        }
+        
         return cell
     }
     

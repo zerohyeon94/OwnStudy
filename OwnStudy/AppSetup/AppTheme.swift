@@ -12,6 +12,8 @@ struct AppTheme {
     struct Color {
         static let primary = UIColor.blue
         static let secondary = UIColor.green
+        static let text = UIColor.black
+        
     }
 
     struct Font {
