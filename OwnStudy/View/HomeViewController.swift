@@ -11,12 +11,15 @@ import UIKit
 // ViewModel과 상호작용하여 화면을 구성하는 곳.
 class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    let colorArray: [UIColor] = [.red, .blue, .green, .yellow, .orange, .purple]
+    
     private let cellIdentifier = "CustomCell"
     private var collectionView: UICollectionView!
+    var viewModel: HomeViewModel = HomeViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // UICollectionViewFlowLayout 설정
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -31,7 +34,11 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
 
         // 셀 등록
         collectionView.register(CustomCell.self, forCellWithReuseIdentifier: cellIdentifier)
-
+        
+        autoLayout()
+    }
+    
+    func autoLayout() {
         // UICollectionView를 뷰에 추가
         view.addSubview(collectionView)
     }
@@ -45,13 +52,14 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CustomCell
         // 각 셀에 대한 데이터 설정
         cell.titleLabel.text = "Title \(indexPath.item + 1)"
+        cell.backgroundColor = colorArray[indexPath.item]
         return cell
     }
 
     // UICollectionViewDelegateFlowLayout 메서드 구현
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // 셀의 크기 설정
-        return CGSize(width: (view.frame.width - 30) / 2, height: 100)
+        return CGSize(width: view.frame.width - 32, height: viewModel.cellHeightSize[indexPath.row])
     }
 }
 
