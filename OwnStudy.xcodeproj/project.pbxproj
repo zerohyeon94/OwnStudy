@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF00E0472B70B54300D36591 /* SpoqaHanSansNeo-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF00E0422B70B54200D36591 /* SpoqaHanSansNeo-Light.ttf */; };
+		CF00E0482B70B54300D36591 /* SpoqaHanSansNeo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF00E0432B70B54200D36591 /* SpoqaHanSansNeo-Regular.ttf */; };
+		CF00E0492B70B54300D36591 /* SpoqaHanSansNeo-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF00E0442B70B54300D36591 /* SpoqaHanSansNeo-Thin.ttf */; };
+		CF00E04A2B70B54300D36591 /* SpoqaHanSansNeo-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF00E0452B70B54300D36591 /* SpoqaHanSansNeo-Medium.ttf */; };
+		CF00E04B2B70B54300D36591 /* SpoqaHanSansNeo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF00E0462B70B54300D36591 /* SpoqaHanSansNeo-Bold.ttf */; };
 		CF3F46782B6CDBE60064777F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CF3F46772B6CDBE60064777F /* SnapKit */; };
 		CF3F467A2B6CDBE60064777F /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = CF3F46792B6CDBE60064777F /* SnapKit-Dynamic */; };
 		CF3F467C2B6CE1180064777F /* QuizCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3F467B2B6CE1180064777F /* QuizCell.swift */; };
@@ -23,12 +28,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF00E0422B70B54200D36591 /* SpoqaHanSansNeo-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Light.ttf"; sourceTree = "<group>"; };
+		CF00E0432B70B54200D36591 /* SpoqaHanSansNeo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Regular.ttf"; sourceTree = "<group>"; };
+		CF00E0442B70B54300D36591 /* SpoqaHanSansNeo-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Thin.ttf"; sourceTree = "<group>"; };
+		CF00E0452B70B54300D36591 /* SpoqaHanSansNeo-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Medium.ttf"; sourceTree = "<group>"; };
+		CF00E0462B70B54300D36591 /* SpoqaHanSansNeo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Bold.ttf"; sourceTree = "<group>"; };
+		CF00E0532B70BC0000D36591 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF3F467B2B6CE1180064777F /* QuizCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCell.swift; sourceTree = "<group>"; };
-		CF3F467E2B6CEDFF0064777F /* SpoqaHanSansNeo-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SpoqaHanSansNeo-Medium.ttf"; path = "../../../DearMyFriend 프로젝트/DearMyFriend/DearMyFriend/DearMyFriend/Font/SpoqaHanSansNeo-Medium.ttf"; sourceTree = "<group>"; };
-		CF3F467F2B6CEDFF0064777F /* SpoqaHanSansNeo-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SpoqaHanSansNeo-Thin.ttf"; path = "../../../DearMyFriend 프로젝트/DearMyFriend/DearMyFriend/DearMyFriend/Font/SpoqaHanSansNeo-Thin.ttf"; sourceTree = "<group>"; };
-		CF3F46802B6CEDFF0064777F /* SpoqaHanSansNeo-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SpoqaHanSansNeo-Light.ttf"; path = "../../../DearMyFriend 프로젝트/DearMyFriend/DearMyFriend/DearMyFriend/Font/SpoqaHanSansNeo-Light.ttf"; sourceTree = "<group>"; };
-		CF3F46812B6CEDFF0064777F /* SpoqaHanSansNeo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SpoqaHanSansNeo-Bold.ttf"; path = "../../../DearMyFriend 프로젝트/DearMyFriend/DearMyFriend/DearMyFriend/Font/SpoqaHanSansNeo-Bold.ttf"; sourceTree = "<group>"; };
-		CF3F46822B6CEDFF0064777F /* SpoqaHanSansNeo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SpoqaHanSansNeo-Regular.ttf"; path = "../../../DearMyFriend 프로젝트/DearMyFriend/DearMyFriend/DearMyFriend/Font/SpoqaHanSansNeo-Regular.ttf"; sourceTree = "<group>"; };
 		CF3F46842B6CEEF70064777F /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		CF3F46882B6CF56F0064777F /* HomeCommonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCommonCell.swift; sourceTree = "<group>"; };
 		CFD014992B4BCAFC00E15BAC /* OwnStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OwnStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,7 +43,6 @@
 		CFD014A62B4BCAFC00E15BAC /* OwnStudy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OwnStudy.xcdatamodel; sourceTree = "<group>"; };
 		CFD014A82B4BCAFD00E15BAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFD014AB2B4BCAFD00E15BAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		CFD014AD2B4BCAFD00E15BAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFD014B62B4BD86C00E15BAC /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		CFD014B82B4BD87600E15BAC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CFD014BA2B4BD88000E15BAC /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -59,11 +64,11 @@
 		CF3F467D2B6CEDE40064777F /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				CF3F46812B6CEDFF0064777F /* SpoqaHanSansNeo-Bold.ttf */,
-				CF3F46802B6CEDFF0064777F /* SpoqaHanSansNeo-Light.ttf */,
-				CF3F467E2B6CEDFF0064777F /* SpoqaHanSansNeo-Medium.ttf */,
-				CF3F46822B6CEDFF0064777F /* SpoqaHanSansNeo-Regular.ttf */,
-				CF3F467F2B6CEDFF0064777F /* SpoqaHanSansNeo-Thin.ttf */,
+				CF00E0462B70B54300D36591 /* SpoqaHanSansNeo-Bold.ttf */,
+				CF00E0422B70B54200D36591 /* SpoqaHanSansNeo-Light.ttf */,
+				CF00E0452B70B54300D36591 /* SpoqaHanSansNeo-Medium.ttf */,
+				CF00E0432B70B54200D36591 /* SpoqaHanSansNeo-Regular.ttf */,
+				CF00E0442B70B54300D36591 /* SpoqaHanSansNeo-Thin.ttf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -104,8 +109,8 @@
 				CFD014B42B4BD48900E15BAC /* View */,
 				CFD014A82B4BCAFD00E15BAC /* Assets.xcassets */,
 				CFD014AA2B4BCAFD00E15BAC /* LaunchScreen.storyboard */,
-				CFD014AD2B4BCAFD00E15BAC /* Info.plist */,
 				CFD014A52B4BCAFC00E15BAC /* OwnStudy.xcdatamodeld */,
+				CF00E0532B70BC0000D36591 /* Info.plist */,
 			);
 			path = OwnStudy;
 			sourceTree = "<group>";
@@ -201,8 +206,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF00E04A2B70B54300D36591 /* SpoqaHanSansNeo-Medium.ttf in Resources */,
+				CF00E0482B70B54300D36591 /* SpoqaHanSansNeo-Regular.ttf in Resources */,
+				CF00E0492B70B54300D36591 /* SpoqaHanSansNeo-Thin.ttf in Resources */,
 				CFD014AC2B4BCAFD00E15BAC /* LaunchScreen.storyboard in Resources */,
+				CF00E0472B70B54300D36591 /* SpoqaHanSansNeo-Light.ttf in Resources */,
 				CFD014A92B4BCAFD00E15BAC /* Assets.xcassets in Resources */,
+				CF00E04B2B70B54300D36591 /* SpoqaHanSansNeo-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

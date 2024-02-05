@@ -7,23 +7,28 @@
 
 import Foundation
 import UIKit
+import SnapKit
 
 class QuizCell: HomeCommonCell {
     static let cellIdentifier = "QuizCell"
     
     var titleLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        
         label.textColor = AppTheme.Color.text
-        label.font = AppTheme.Font.title
+        label.font = AppTheme.Font.Cell.title
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     var questionLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        
         label.textColor = AppTheme.Color.text
-        label.font = AppTheme.Font.body
+        label.font = AppTheme.Font.Cell.body
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
