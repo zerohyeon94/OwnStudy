@@ -15,7 +15,9 @@ struct HomeModel {
     }
 
     struct CSInfo {
-        // CS 지식 모델 정의...
+        var title: String
+        var questionCount: Int
+        var bookmarkedCount: Int
     }
 
     struct SwiftSyntax {

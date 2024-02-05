@@ -76,6 +76,7 @@ class HomeViewController: UIViewController{
         view.backgroundColor = .yellow
         // 셀 등록
         collectionView.register(QuizCell.self, forCellWithReuseIdentifier: QuizCell.cellIdentifier)
+        collectionView.register(CSInfoCell.self, forCellWithReuseIdentifier: CSInfoCell.cellIdentifier)
         
         autoLayout()
     }
@@ -83,7 +84,6 @@ class HomeViewController: UIViewController{
     func autoLayout() {
         view.addSubview(titleStackView) // date관련된 정보를 모은 UItitleStackView를 뷰에 추가
         view.addSubview(collectionView) // UICollectionView를 뷰에 추가
-        
         
         // SnapKit을 사용하여 Auto Layout 설정
         titleStackView.snp.makeConstraints { make in
@@ -119,8 +119,13 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
                 quizCell.questionLabel.text = "question title"
                 quizCell.backgroundColor = colorArray[indexPath.item]
             }
-            //        case .csInfo:
-            // CSInfoCell에 대한 설정...
+        case .csInfo:
+            if let csInfoCell = cell as? CSInfoCell {
+                csInfoCell.titleLabel.text = "Title \(indexPath.item + 1)"
+                csInfoCell.questionCount = 10
+                csInfoCell.bookmarkedCount = 5
+                csInfoCell.backgroundColor = colorArray[indexPath.item]
+            }
             //        case .swiftSyntax:
             // SwiftSyntaxCell에 대한 설정...
             // 추가적인 셀 유형들...
