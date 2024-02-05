@@ -18,8 +18,7 @@ struct AppTheme {
 
     struct Font {
         struct Page {
-//            static let title = UIFont(name: "SpoqaHanSansNeo-Bold", size: 25)
-            static let title = UIFont.boldSystemFont(ofSize: 25)
+            static let title = UIFont(name: "SpoqaHanSansNeo-Bold", size: 25)
         }
         
         struct Cell {

@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 // ViewModel과 상호작용하여 화면을 구성하는 곳.
-class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class HomeViewController: UIViewController{
     
     let colorArray: [UIColor] = [.red, .blue, .green, .yellow, .orange, .purple]
     
@@ -42,7 +42,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     private lazy var titleStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [dateLabel, dDayLabel])
-        stackView.backgroundColor = .blue
+        stackView.backgroundColor = .white
         stackView.spacing = 0
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
@@ -73,13 +73,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for family in UIFont.familyNames {
-            print("family: \(family)")
-            for name in UIFont.fontNames(forFamilyName: family) {
-                print("name: \(name)")
-            }
-        }
-        
         view.backgroundColor = .yellow
         // 셀 등록
         collectionView.register(QuizCell.self, forCellWithReuseIdentifier: QuizCell.cellIdentifier)
@@ -99,12 +92,14 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
         
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(titleStackView.snp.bottom).offset(0) // postStackView 바로 아래에 위치하도록 설정
+            make.top.equalTo(titleStackView.snp.bottom).offset(10) // postStackView 바로 아래에 위치하도록 설정
             make.leading.trailing.bottom.equalToSuperview().inset(0) // 좌우, 아래 여백 설정
-//            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
+            //            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
         }
     }
-    
+}
+
+extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     // UICollectionViewDataSource 메서드 구현
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.cellTypes.count // 셀 개수
@@ -124,9 +119,9 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
                 quizCell.questionLabel.text = "question title"
                 quizCell.backgroundColor = colorArray[indexPath.item]
             }
-//        case .csInfo:
+            //        case .csInfo:
             // CSInfoCell에 대한 설정...
-//        case .swiftSyntax:
+            //        case .swiftSyntax:
             // SwiftSyntaxCell에 대한 설정...
             // 추가적인 셀 유형들...
         }
@@ -138,5 +133,26 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // 셀의 크기 설정
         return CGSize(width: view.frame.width - 32, height: viewModel.cellHeightSize[indexPath.row])
+    }
+    
+    // UICollectionViewDelegate 메서드 중 didSelectItemAt을 구현
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // 선택한 셀에 대한 처리
+//        let selectedCellType = viewModel.cellTypes[indexPath.row]
+//        
+//        // 페이지로 이동하는 코드
+//        switch selectedCellType {
+//        case .quiz:
+//            // 선택한 셀이 Quiz 타입인 경우에 대한 처리
+//            // 예를 들어, 새로운 뷰 컨트롤러를 생성하고 필요한 데이터를 전달한 후 푸시
+//            let quizDetailViewController = QuizDetailViewController() // 예시 뷰 컨트롤러
+//            navigationController?.pushViewController(quizDetailViewController, animated: true)
+//            
+//            // 추가적인 셀 타입들에 대한 처리도 추가할 수 있습니다.
+//            //        case .csInfo:
+//            //            // CSInfoCell에 대한 처리...
+//            //        case .swiftSyntax:
+//            //            // SwiftSyntaxCell에 대한 처리...
+//        }
     }
 }
