@@ -88,4 +88,12 @@ class CSInfoCell: HomeCommonCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func setCount(questionCount: Int, bookmarkedCount: Int) {
+        self.questionCount = questionCount
+        self.bookmarkedCount = bookmarkedCount
+        
+        questionCountLabel.text = "문제 수 : \(questionCount)"
+        bookmarkedCountLabel.text = "즐겨찾기 수 : \(bookmarkedCount)"
+    }
 }

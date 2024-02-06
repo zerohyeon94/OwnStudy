@@ -37,7 +37,7 @@ class HomeViewModel {
     //    var projectInfoData: HomeModel.ProjectInfo
     
     var cellTypes: [CellType] = [.quiz, .csInfo] // , .csInfo, .swiftSyntax
-    var cellHeightSize: [CGFloat] = [2100, 2100]
+    var cellHeightSize: [CGFloat] = [210, 210]
     
     init() {
         // 데이터 초기화 및 필요한 로직 수행...

@@ -122,8 +122,8 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         case .csInfo:
             if let csInfoCell = cell as? CSInfoCell {
                 csInfoCell.titleLabel.text = "Title \(indexPath.item + 1)"
-                csInfoCell.questionCount = 10
-                csInfoCell.bookmarkedCount = 5
+                // 문제 수와 즐겨찾기 수를 확인한 후 그 값을 저장. - 해당 함수는 ViewModel에 구현 예정
+                csInfoCell.setCount(questionCount: 10, bookmarkedCount: 5)
                 csInfoCell.backgroundColor = colorArray[indexPath.item]
             }
             //        case .swiftSyntax:
