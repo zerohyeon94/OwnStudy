@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class QuizCell: HomeCommonCell {
+class HomeQuizCell: HomeCommonCell {
     static let cellIdentifier = "QuizCell"
     
     var titleLabel: UILabel = {
@@ -39,13 +39,16 @@ class QuizCell: HomeCommonCell {
         autoLayout()
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func autoLayout() {
         // 셀에 UI 요소 추가
         contentView.addSubview(titleLabel)
         contentView.addSubview(questionLabel)
         
         titleLabel.snp.makeConstraints { make in
-            //            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0))
             make.top.equalToSuperview().offset(10)
             make.left.equalToSuperview().offset(10)
         }
@@ -54,9 +57,5 @@ class QuizCell: HomeCommonCell {
             make.top.equalTo(titleLabel.snp.bottom).offset(10)
             make.left.equalToSuperview().offset(10)
         }
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

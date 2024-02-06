@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class CSInfoCell: HomeCommonCell {
+class HomeCSInfoCell: HomeCommonCell {
     static let cellIdentifier = "CSInfoCell"
     
     var questionCount: Int = 0
@@ -68,6 +68,10 @@ class CSInfoCell: HomeCommonCell {
         autoLayout()
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func autoLayout() {
         // 셀에 UI 요소 추가
         contentView.addSubview(titleLabel)
@@ -83,10 +87,6 @@ class CSInfoCell: HomeCommonCell {
             make.top.equalTo(titleLabel.snp.bottom).offset(10)
             make.left.equalToSuperview().offset(10)
         }
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     func setCount(questionCount: Int, bookmarkedCount: Int) {

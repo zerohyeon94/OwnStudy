@@ -18,15 +18,15 @@ class HomeViewController: UIViewController{
     
     // dummyData
     let csDummyData: CSInfoViewModel = CSInfoViewModel(csInfoModel: CSInfoModel(
-        todayQuiz: CSQuiz(title: "오늘의 퀴즈 있음.", details: "상세 정보"),
-        bookmarkedQuizzes: [CSQuiz(title: "즐찾 문제 1", details: "상세 정보"),
-                            CSQuiz(title: "즐찾 문제 2", details: "상세 정보"),
-                            CSQuiz(title: "즐찾 문제 3", details: "상세 정보")],
-        allQuizzes: [CSQuiz(title: "문제 1", details: "상세 정보"),
-                     CSQuiz(title: "문제 2", details: "상세 정보"),
-                     CSQuiz(title: "문제 3", details: "상세 정보"),
-                     CSQuiz(title: "문제 4", details: "상세 정보"),
-                     CSQuiz(title: "문제 5", details: "상세 정보")]))
+        todayQuiz: CSQuiz(title: "오늘의 퀴즈 있음.", details: "상세 정보", isBookmarked: true),
+        bookmarkedQuizzes: [CSQuiz(title: "문제 1", details: "상세 정보", isBookmarked: true),
+                            CSQuiz(title: "문제 2", details: "상세 정보", isBookmarked: true),
+                            CSQuiz(title: "문제 3", details: "상세 정보", isBookmarked: true)],
+        allQuizzes: [CSQuiz(title: "문제 1", details: "상세 정보", isBookmarked: true),
+                     CSQuiz(title: "문제 2", details: "상세 정보", isBookmarked: true),
+                     CSQuiz(title: "문제 3", details: "상세 정보", isBookmarked: true),
+                     CSQuiz(title: "문제 4", details: "상세 정보", isBookmarked: false),
+                     CSQuiz(title: "문제 5", details: "상세 정보", isBookmarked: false)]))
     
     // 오늘 날짜. 공부가 유지되는 일차 표시
     lazy var dateLabel: UILabel = {
@@ -84,7 +84,7 @@ class HomeViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         // NavigationBar 숨김.
-//        navigationController?.isNavigationBarHidden = true
+        //        navigationController?.isNavigationBarHidden = true
     }
     
     override func viewDidLoad() {
@@ -92,8 +92,8 @@ class HomeViewController: UIViewController{
         
         view.backgroundColor = .yellow
         // 셀 등록
-        collectionView.register(QuizCell.self, forCellWithReuseIdentifier: QuizCell.cellIdentifier)
-        collectionView.register(CSInfoCell.self, forCellWithReuseIdentifier: CSInfoCell.cellIdentifier)
+        collectionView.register(HomeQuizCell.self, forCellWithReuseIdentifier: HomeQuizCell.cellIdentifier)
+        collectionView.register(HomeCSInfoCell.self, forCellWithReuseIdentifier: HomeCSInfoCell.cellIdentifier)
         
         autoLayout()
     }
@@ -131,13 +131,13 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         // 각 셀에 대한 데이터 설정
         switch cellType {
         case .quiz:
-            if let quizCell = cell as? QuizCell {
+            if let quizCell = cell as? HomeQuizCell {
                 quizCell.titleLabel.text = "Title \(indexPath.item + 1)"
                 quizCell.questionLabel.text = "question title"
                 quizCell.backgroundColor = colorArray[indexPath.item]
             }
         case .csInfo:
-            if let csInfoCell = cell as? CSInfoCell {
+            if let csInfoCell = cell as? HomeCSInfoCell {
                 csInfoCell.titleLabel.text = "Title \(indexPath.item + 1)"
                 // 문제 수와 즐겨찾기 수를 확인한 후 그 값을 저장. - 해당 함수는 ViewModel에 구현 예정
                 csInfoCell.setCount(questionCount: csDummyData.allQuizzes.count, bookmarkedCount: csDummyData.bookmarkedQuizzes.count)
@@ -168,8 +168,8 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             print("quiz")
             // 선택한 셀이 Quiz 타입인 경우에 대한 처리
             // 예를 들어, 새로운 뷰 컨트롤러를 생성하고 필요한 데이터를 전달한 후 푸시
-//            let quizDetailViewController = QuizDetailViewController() // 예시 뷰 컨트롤러
-//            navigationController?.pushViewController(quizDetailViewController, animated: true)
+            //            let quizDetailViewController = QuizDetailViewController() // 예시 뷰 컨트롤러
+            //            navigationController?.pushViewController(quizDetailViewController, animated: true)
             break
         case .csInfo:
             print("csInfo")

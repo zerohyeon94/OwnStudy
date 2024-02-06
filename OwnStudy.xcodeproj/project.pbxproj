@@ -13,13 +13,14 @@
 		CF00E04A2B70B54300D36591 /* SpoqaHanSansNeo-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF00E0452B70B54300D36591 /* SpoqaHanSansNeo-Medium.ttf */; };
 		CF00E04B2B70B54300D36591 /* SpoqaHanSansNeo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF00E0462B70B54300D36591 /* SpoqaHanSansNeo-Bold.ttf */; };
 		CF00E0592B70C91200D36591 /* CSInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF00E0582B70C91200D36591 /* CSInfoModel.swift */; };
-		CF00E05B2B70CE1900D36591 /* CSInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF00E05A2B70CE1900D36591 /* CSInfoCell.swift */; };
+		CF00E05B2B70CE1900D36591 /* HomeCSInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF00E05A2B70CE1900D36591 /* HomeCSInfoCell.swift */; };
 		CF00E05E2B71F45F00D36591 /* CSInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF00E05D2B71F45F00D36591 /* CSInfoViewModel.swift */; };
 		CF00E0612B71F49800D36591 /* CSInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF00E0602B71F49800D36591 /* CSInfoView.swift */; };
 		CF00E0632B71F4AF00D36591 /* CSInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF00E0622B71F4AF00D36591 /* CSInfoViewController.swift */; };
+		CF00E0652B72150600D36591 /* CSInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF00E0642B72150600D36591 /* CSInfoCell.swift */; };
 		CF3F46782B6CDBE60064777F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CF3F46772B6CDBE60064777F /* SnapKit */; };
 		CF3F467A2B6CDBE60064777F /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = CF3F46792B6CDBE60064777F /* SnapKit-Dynamic */; };
-		CF3F467C2B6CE1180064777F /* QuizCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3F467B2B6CE1180064777F /* QuizCell.swift */; };
+		CF3F467C2B6CE1180064777F /* HomeQuizCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3F467B2B6CE1180064777F /* HomeQuizCell.swift */; };
 		CF3F46852B6CEEF70064777F /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3F46842B6CEEF70064777F /* AppTheme.swift */; };
 		CF3F46892B6CF56F0064777F /* HomeCommonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3F46882B6CF56F0064777F /* HomeCommonCell.swift */; };
 		CFD0149D2B4BCAFC00E15BAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD0149C2B4BCAFC00E15BAC /* AppDelegate.swift */; };
@@ -40,11 +41,12 @@
 		CF00E0462B70B54300D36591 /* SpoqaHanSansNeo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Bold.ttf"; sourceTree = "<group>"; };
 		CF00E0532B70BC0000D36591 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF00E0582B70C91200D36591 /* CSInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSInfoModel.swift; sourceTree = "<group>"; };
-		CF00E05A2B70CE1900D36591 /* CSInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSInfoCell.swift; sourceTree = "<group>"; };
+		CF00E05A2B70CE1900D36591 /* HomeCSInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCSInfoCell.swift; sourceTree = "<group>"; };
 		CF00E05D2B71F45F00D36591 /* CSInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSInfoViewModel.swift; sourceTree = "<group>"; };
 		CF00E0602B71F49800D36591 /* CSInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSInfoView.swift; sourceTree = "<group>"; };
 		CF00E0622B71F4AF00D36591 /* CSInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSInfoViewController.swift; sourceTree = "<group>"; };
-		CF3F467B2B6CE1180064777F /* QuizCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCell.swift; sourceTree = "<group>"; };
+		CF00E0642B72150600D36591 /* CSInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSInfoCell.swift; sourceTree = "<group>"; };
+		CF3F467B2B6CE1180064777F /* HomeQuizCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeQuizCell.swift; sourceTree = "<group>"; };
 		CF3F46842B6CEEF70064777F /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		CF3F46882B6CF56F0064777F /* HomeCommonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCommonCell.swift; sourceTree = "<group>"; };
 		CFD014992B4BCAFC00E15BAC /* OwnStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OwnStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,9 +77,9 @@
 			isa = PBXGroup;
 			children = (
 				CFD014B82B4BD87600E15BAC /* HomeViewController.swift */,
-				CF3F467B2B6CE1180064777F /* QuizCell.swift */,
+				CF3F467B2B6CE1180064777F /* HomeQuizCell.swift */,
 				CF3F46882B6CF56F0064777F /* HomeCommonCell.swift */,
-				CF00E05A2B70CE1900D36591 /* CSInfoCell.swift */,
+				CF00E05A2B70CE1900D36591 /* HomeCSInfoCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -87,6 +89,7 @@
 			children = (
 				CF00E0602B71F49800D36591 /* CSInfoView.swift */,
 				CF00E0622B71F4AF00D36591 /* CSInfoViewController.swift */,
+				CF00E0642B72150600D36591 /* CSInfoCell.swift */,
 			);
 			path = CSInfo;
 			sourceTree = "<group>";
@@ -257,11 +260,12 @@
 				CFD0149D2B4BCAFC00E15BAC /* AppDelegate.swift in Sources */,
 				CFD014BB2B4BD88000E15BAC /* HomeViewModel.swift in Sources */,
 				CFD014A72B4BCAFC00E15BAC /* OwnStudy.xcdatamodeld in Sources */,
+				CF00E0652B72150600D36591 /* CSInfoCell.swift in Sources */,
 				CF00E0592B70C91200D36591 /* CSInfoModel.swift in Sources */,
 				CF3F46892B6CF56F0064777F /* HomeCommonCell.swift in Sources */,
-				CF00E05B2B70CE1900D36591 /* CSInfoCell.swift in Sources */,
+				CF00E05B2B70CE1900D36591 /* HomeCSInfoCell.swift in Sources */,
 				CFD014B92B4BD87600E15BAC /* HomeViewController.swift in Sources */,
-				CF3F467C2B6CE1180064777F /* QuizCell.swift in Sources */,
+				CF3F467C2B6CE1180064777F /* HomeQuizCell.swift in Sources */,
 				CF00E0612B71F49800D36591 /* CSInfoView.swift in Sources */,
 				CF3F46852B6CEEF70064777F /* AppTheme.swift in Sources */,
 				CF00E0632B71F4AF00D36591 /* CSInfoViewController.swift in Sources */,
