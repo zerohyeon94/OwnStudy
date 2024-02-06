@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+struct CSQuiz {
+    let title: String
+    let details: String
+}
+
+struct CSInfoModel {
+    let todayQuiz: CSQuiz? // 없을 수도 있어서.
+    let bookmarkedQuizzes: [CSQuiz]
+    let allQuizzes: [CSQuiz]
+}

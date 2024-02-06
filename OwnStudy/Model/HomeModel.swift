@@ -8,7 +8,7 @@ import Foundation
 
 // 홈 화면에 표시되는 항목에 대한 데이터를 담당
 struct HomeModel {
-    struct Quiz {
+    struct TodayQuiz {
         var title: String
         var question: String
         var answer: String

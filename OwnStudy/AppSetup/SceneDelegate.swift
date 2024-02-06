@@ -21,9 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
          
             let vc = HomeViewController()
             //만약 navigationController기능을 추가하고 싶다면 아래 코드를 사용하면 됩니다.
-            //let nav = UINavigationController(rootViewController: vc)
+            let nav = UINavigationController(rootViewController: vc)
          
-            window?.rootViewController = vc
+            window?.rootViewController = nav
             window?.makeKeyAndVisible()
     }
 

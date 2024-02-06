@@ -16,6 +16,18 @@ class HomeViewController: UIViewController{
     
     var viewModel: HomeViewModel = HomeViewModel()
     
+    // dummyData
+    let csDummyData: CSInfoViewModel = CSInfoViewModel(csInfoModel: CSInfoModel(
+        todayQuiz: CSQuiz(title: "오늘의 퀴즈 있음.", details: "상세 정보"),
+        bookmarkedQuizzes: [CSQuiz(title: "즐찾 문제 1", details: "상세 정보"),
+                            CSQuiz(title: "즐찾 문제 2", details: "상세 정보"),
+                            CSQuiz(title: "즐찾 문제 3", details: "상세 정보")],
+        allQuizzes: [CSQuiz(title: "문제 1", details: "상세 정보"),
+                     CSQuiz(title: "문제 2", details: "상세 정보"),
+                     CSQuiz(title: "문제 3", details: "상세 정보"),
+                     CSQuiz(title: "문제 4", details: "상세 정보"),
+                     CSQuiz(title: "문제 5", details: "상세 정보")]))
+    
     // 오늘 날짜. 공부가 유지되는 일차 표시
     lazy var dateLabel: UILabel = {
         let label = UILabel()
@@ -70,6 +82,11 @@ class HomeViewController: UIViewController{
         return collectionView
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        // NavigationBar 숨김.
+//        navigationController?.isNavigationBarHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -123,7 +140,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             if let csInfoCell = cell as? CSInfoCell {
                 csInfoCell.titleLabel.text = "Title \(indexPath.item + 1)"
                 // 문제 수와 즐겨찾기 수를 확인한 후 그 값을 저장. - 해당 함수는 ViewModel에 구현 예정
-                csInfoCell.setCount(questionCount: 10, bookmarkedCount: 5)
+                csInfoCell.setCount(questionCount: csDummyData.allQuizzes.count, bookmarkedCount: csDummyData.bookmarkedQuizzes.count)
                 csInfoCell.backgroundColor = colorArray[indexPath.item]
             }
             //        case .swiftSyntax:
@@ -143,21 +160,22 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     // UICollectionViewDelegate 메서드 중 didSelectItemAt을 구현
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // 선택한 셀에 대한 처리
-//        let selectedCellType = viewModel.cellTypes[indexPath.row]
-//        
-//        // 페이지로 이동하는 코드
-//        switch selectedCellType {
-//        case .quiz:
-//            // 선택한 셀이 Quiz 타입인 경우에 대한 처리
-//            // 예를 들어, 새로운 뷰 컨트롤러를 생성하고 필요한 데이터를 전달한 후 푸시
+        let selectedCellType = viewModel.cellTypes[indexPath.row]
+        
+        // 페이지로 이동하는 코드
+        switch selectedCellType {
+        case .quiz:
+            print("quiz")
+            // 선택한 셀이 Quiz 타입인 경우에 대한 처리
+            // 예를 들어, 새로운 뷰 컨트롤러를 생성하고 필요한 데이터를 전달한 후 푸시
 //            let quizDetailViewController = QuizDetailViewController() // 예시 뷰 컨트롤러
 //            navigationController?.pushViewController(quizDetailViewController, animated: true)
-//            
-//            // 추가적인 셀 타입들에 대한 처리도 추가할 수 있습니다.
-//            //        case .csInfo:
-//            //            // CSInfoCell에 대한 처리...
-//            //        case .swiftSyntax:
-//            //            // SwiftSyntaxCell에 대한 처리...
-//        }
+            break
+        case .csInfo:
+            print("csInfo")
+            // HomeViewController에서 CSInfo의 데이터를 가지고 오고, 해당 데이터를 넘겨주는게 좋음.
+            let csInfoViewController = CSInfoViewController(csInfoViewModel: csDummyData) // 예시 뷰 컨트롤러
+            navigationController?.pushViewController(csInfoViewController, animated: true)
+        }
     }
 }

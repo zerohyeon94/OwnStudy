@@ -29,7 +29,7 @@ enum CellType {
 // 데이터를 뷰에 바인딩하고, 뷰에서 필요한 동작을 처리하는 역할을 하는 뷰 모델 클래스.
 // 각 항목에 대한 데이터를 가지고 있고, 뷰에서 필요한 처리 로직을 정의
 class HomeViewModel {
-    var quizData: HomeModel.Quiz
+    var quizData: HomeModel.TodayQuiz
     var csInfoData: HomeModel.CSInfo
     //    var swiftSyntaxData: HomeModel.SwiftSyntax
     //    var techInterviewData: HomeModel.TechInterview
@@ -41,7 +41,7 @@ class HomeViewModel {
     
     init() {
         // 데이터 초기화 및 필요한 로직 수행...
-        quizData = HomeModel.Quiz(title: "오늘의 퀴즈", question: "프로젝트의 이름은?", answer: "온스터디")
+        quizData = HomeModel.TodayQuiz(title: "오늘의 퀴즈", question: "프로젝트의 이름은?", answer: "온스터디")
         csInfoData = HomeModel.CSInfo(title: "CS 정보", questionCount: 10, bookmarkedCount: 5)
     }
     
