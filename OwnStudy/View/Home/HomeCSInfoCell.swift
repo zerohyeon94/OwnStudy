@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 class HomeCSInfoCell: HomeCommonCell {
-    static let cellIdentifier = "CSInfoCell"
+    static let cellIdentifier = "HomeCSInfoCell"
     
     var questionCount: Int = 0
     var bookmarkedCount: Int = 0

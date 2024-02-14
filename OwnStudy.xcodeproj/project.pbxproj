@@ -116,6 +116,13 @@
 			path = AppSetup;
 			sourceTree = "<group>";
 		};
+		CFC1E1852B7D853F00F53745 /* TestCode */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TestCode;
+			sourceTree = "<group>";
+		};
 		CFD014902B4BCAFC00E15BAC = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +167,7 @@
 		CFD014B42B4BD48900E15BAC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CFC1E1852B7D853F00F53745 /* TestCode */,
 				CF00E05F2B71F48200D36591 /* CSInfo */,
 				CF00E05C2B70CE1E00D36591 /* Home */,
 			);

@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 class HomeQuizCell: HomeCommonCell {
-    static let cellIdentifier = "QuizCell"
+    static let cellIdentifier = "HomeQuizCell"
     
     var titleLabel: UILabel = {
         let label = UILabel()

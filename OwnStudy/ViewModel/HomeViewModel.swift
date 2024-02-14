@@ -10,6 +10,7 @@ import Foundation
 enum CellType {
     case quiz
     case csInfo
+    case testCode
     //    case swiftSyntax
     // 추가적인 셀 유형들...
     
@@ -19,6 +20,8 @@ enum CellType {
             return HomeQuizCell.cellIdentifier
         case .csInfo:
             return HomeCSInfoCell.cellIdentifier
+        case .testCode:
+            
             //        case .swiftSyntax:
             //            return SwiftSyntaxCell.cellIdentifier
             // 추가적인 셀 식별자들...

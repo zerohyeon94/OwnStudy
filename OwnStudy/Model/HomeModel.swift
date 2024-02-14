@@ -35,4 +35,11 @@ struct HomeModel {
     struct ProjectInfo {
         // 프로젝트 정보 모델 정의...
     }
+    
+    // 간단한 테스트 코드
+    struct TestCode {
+        var recentTestTitle: String
+        var testCount: Int
+        var bookmaredCount: Int
+    }
 }
