@@ -14,13 +14,14 @@ protocol ChangeUIDelegate: class {
 
 class SecondViewController: UIViewController {
     
-    var delegate: ChangeUIDelegate?
+    weak var delegate: ChangeUIDelegate?
     
     lazy var pageTitleLabel: UILabel = {
         let label = UILabel()
         
         label.textColor = AppTheme.Color.text
         label.font = AppTheme.Font.Cell.title
+        label.textAlignment = .center
         label.text = "2번째 화면 입니다."
         
         label.translatesAutoresizingMaskIntoConstraints = false

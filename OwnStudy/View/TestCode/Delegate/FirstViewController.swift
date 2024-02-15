@@ -45,7 +45,6 @@ class FirstViewController: UIViewController {
         view.addSubview(pageTitleLabel)
         view.addSubview(nextButton)
         
-        // SnapKit을 사용하여 Auto Layout 설정
         pageTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(10)
             make.leading.trailing.equalToSuperview().inset(16)
