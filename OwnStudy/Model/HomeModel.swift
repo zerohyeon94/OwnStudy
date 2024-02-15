@@ -39,7 +39,7 @@ struct HomeModel {
     // 간단한 테스트 코드
     struct TestCode {
         var recentTestTitle: String
-        var testCount: Int
-        var bookmaredCount: Int
+        var codeTestCount: Int
+        var bookmarkedCount: Int
     }
 }

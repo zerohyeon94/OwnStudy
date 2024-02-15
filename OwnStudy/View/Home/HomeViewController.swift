@@ -94,6 +94,7 @@ class HomeViewController: UIViewController{
         // 셀 등록
         collectionView.register(HomeQuizCell.self, forCellWithReuseIdentifier: HomeQuizCell.cellIdentifier)
         collectionView.register(HomeCSInfoCell.self, forCellWithReuseIdentifier: HomeCSInfoCell.cellIdentifier)
+        collectionView.register(HomeTestCodeCell.self, forCellWithReuseIdentifier: HomeTestCodeCell.cellIdentifier)
         
         autoLayout()
     }
@@ -125,6 +126,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellType = viewModel.cellTypes[indexPath.row]
         let cellIdentifier = cellType.cellIdentifier
+        print("cellType: \(cellType), cellIdentifier: \(cellIdentifier)")
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
         
@@ -142,6 +144,13 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
                 // 문제 수와 즐겨찾기 수를 확인한 후 그 값을 저장. - 해당 함수는 ViewModel에 구현 예정
                 csInfoCell.setCount(questionCount: csDummyData.allQuizzes.count, bookmarkedCount: csDummyData.bookmarkedQuizzes.count)
                 csInfoCell.backgroundColor = colorArray[indexPath.item]
+            }
+        case .testCode:
+            if let testCodeCell = cell as? HomeTestCodeCell {
+                testCodeCell.titleLabel.text = "Title \(indexPath.item + 1)"
+                // 문제 수와 즐겨찾기 수를 확인한 후 그 값을 저장. - 해당 함수는 ViewModel에 구현 예정
+                testCodeCell.setCount(codeTestCount: 1, bookmarkedCount: 1)
+                testCodeCell.backgroundColor = colorArray[indexPath.item]
             }
             //        case .swiftSyntax:
             // SwiftSyntaxCell에 대한 설정...
@@ -176,6 +185,10 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             // HomeViewController에서 CSInfo의 데이터를 가지고 오고, 해당 데이터를 넘겨주는게 좋음.
             let csInfoViewController = CSInfoViewController(csInfoViewModel: csDummyData) // 예시 뷰 컨트롤러
             navigationController?.pushViewController(csInfoViewController, animated: true)
+        case .testCode:
+            print("testCode")
+            let firstViewController = FirstViewController()
+            navigationController?.pushViewController(firstViewController, animated: true)
         }
     }
 }
