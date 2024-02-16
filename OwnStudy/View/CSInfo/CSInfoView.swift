@@ -20,11 +20,11 @@ class CSInfoView: UIView {
         tableView.dataSource = self
         tableView.delegate = self
         
-        tableView.separatorStyle = .none // Cell 사이 줄 제거
+//        tableView.separatorStyle = .none // Cell 사이 줄 제거
         tableView.backgroundColor = .white
         
-        let petInfoCellHeight: CGFloat = 50
-        tableView.rowHeight = petInfoCellHeight // 모든 Cell의 높이를 동일하게 할 경우에 해당 속성을 설정.
+//        let petInfoCellHeight: CGFloat = 50
+//        tableView.rowHeight = petInfoCellHeight // 모든 Cell의 높이를 동일하게 할 경우에 해당 속성을 설정.
         tableView.register(CSInfoCell.self, forCellReuseIdentifier: CSInfoCell.cellIdentifier)
 
         return tableView
@@ -95,10 +95,10 @@ extension CSInfoView: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: CSInfoCell.cellIdentifier, for: indexPath) as! CSInfoCell
         let quiz = allQuizzes[indexPath.row]
         
-        // 선택된 상태일 때의 배경 뷰를 설정하여 선택 효과를 없앰
-        let selectedView = UIView()
-        selectedView.backgroundColor = UIColor.clear
-        cell.selectedBackgroundView = selectedView
+        // 선택된 상태일 때의 배경 뷰를 설정하여 선택 효과를 없앰 -> 우선 선택 효과 표시
+//        let selectedView = UIView()
+//        selectedView.backgroundColor = UIColor.clear
+//        cell.selectedBackgroundView = selectedView
 
         cell.titleLabel.text = quiz.title
         
@@ -113,24 +113,20 @@ extension CSInfoView: UITableViewDataSource {
 
 // MARK: - TableView Delegate
 extension CSInfoView: UITableViewDelegate {
+    // cell Touch 효과
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 셀이 선택되었을 때 필요한 동작을 구현
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60 // 각 셀의 기본 높이
+        return 50 // 각 셀의 기본 높이
     }
 
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 20 // 섹션의 머리글 높이
-//    }
-//
-//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//        return 20 // 섹션의 바닥글 높이
-//    }
-    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
+    
 }
 
 // MARK: - Action Handling
