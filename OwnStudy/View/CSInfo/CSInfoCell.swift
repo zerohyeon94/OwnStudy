@@ -11,16 +11,6 @@ import UIKit
 class CSInfoCell: UITableViewCell {
     static let cellIdentifier = "CSInfoCell"
     
-    lazy var numberLabel: UILabel = {
-        let label = UILabel()
-        
-        label.textColor = AppTheme.Color.text
-        label.font = AppTheme.Font.Cell.title
-        
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         
@@ -42,7 +32,7 @@ class CSInfoCell: UITableViewCell {
     }()
     
     lazy var csInfoStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [numberLabel, titleLabel, bookmarkButton])
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, bookmarkButton])
         stackView.backgroundColor = .white
         stackView.spacing = 0
         stackView.axis = .horizontal
@@ -52,15 +42,38 @@ class CSInfoCell: UITableViewCell {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         setupUI()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        setupUI()
+    }
+    
+    // cell 재사용 시 초기화
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        if selected {
+            contentView.layer.borderWidth = 2
+            contentView.layer.borderColor = UIColor.blue.cgColor
+        } else {
+            contentView.layer.borderWidth = 1
+            contentView.layer.borderColor = UIColor.lightGray.cgColor
+        }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16))
     }
     
     private func setLayer() {
@@ -75,11 +88,17 @@ class CSInfoCell: UITableViewCell {
         contentView.addSubview(csInfoStackView)
         
         csInfoStackView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0))
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
         }
+        
+        // titleLabel의 높이를 내용에 맞게 조절
+        titleLabel.setContentCompressionResistancePriority(.required, for: .vertical)
+        titleLabel.setContentHuggingPriority(.required, for: .vertical)
     }
-
+    
     private func setupUI() {
+        //        contentView.backgroundColor = .clear
+        
         setLayer()
         autoLayout()
     }

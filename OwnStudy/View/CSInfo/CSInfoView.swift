@@ -12,9 +12,23 @@ import UIKit
 class CSInfoView: UIView {
     // UI 요소들을 정의하고 초기화하는 코드 추가
     
-    var csInfotableView = UITableView()
     var allQuizzes: [CSQuiz] = []
     var bookmarkedQuizzes: [CSQuiz] = []
+    
+    lazy var csInfotableView: UITableView = {
+        let tableView = UITableView()
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        tableView.separatorStyle = .none // Cell 사이 줄 제거
+        tableView.backgroundColor = .white
+        
+        let petInfoCellHeight: CGFloat = 50
+        tableView.rowHeight = petInfoCellHeight // 모든 Cell의 높이를 동일하게 할 경우에 해당 속성을 설정.
+        tableView.register(CSInfoCell.self, forCellReuseIdentifier: CSInfoCell.cellIdentifier)
+
+        return tableView
+    }()
     
     init(csInfoViewModel: CSInfoViewModel) {
         print("csInfoViewModel: \(csInfoViewModel.allQuizzes.count)")
@@ -36,17 +50,6 @@ class CSInfoView: UIView {
         setupUI()
     }
     
-    func setupTableView(){
-        print("setupTableView 실행")
-        print("count: \(bookmarkedQuizzes.count)")
-        csInfotableView.separatorStyle = .none // Cell 사이 줄 제거
-        let petInfoCellHeight: CGFloat = 150 // Cell의 여유분의 높이 10을 줌.
-        csInfotableView.rowHeight = petInfoCellHeight
-        csInfotableView.register(CSInfoCell.self, forCellReuseIdentifier: CSInfoCell.cellIdentifier)
-        
-        csInfotableView.dataSource = self
-    }
-    
     func setTableViewConstraints() {
         addSubview(csInfotableView)
         csInfotableView.translatesAutoresizingMaskIntoConstraints = false
@@ -60,7 +63,6 @@ class CSInfoView: UIView {
     }
     
     private func setupUI() {
-        setupTableView()
         setTableViewConstraints()
     }
     
@@ -93,7 +95,11 @@ extension CSInfoView: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: CSInfoCell.cellIdentifier, for: indexPath) as! CSInfoCell
         let quiz = allQuizzes[indexPath.row]
         
-        cell.numberLabel.text = "문제 \(indexPath.row + 1)"
+        // 선택된 상태일 때의 배경 뷰를 설정하여 선택 효과를 없앰
+        let selectedView = UIView()
+        selectedView.backgroundColor = UIColor.clear
+        cell.selectedBackgroundView = selectedView
+
         cell.titleLabel.text = quiz.title
         
         // 즐겨찾기 여부 버튼
@@ -109,6 +115,21 @@ extension CSInfoView: UITableViewDataSource {
 extension CSInfoView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 셀이 선택되었을 때 필요한 동작을 구현
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60 // 각 셀의 기본 높이
+    }
+
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 20 // 섹션의 머리글 높이
+//    }
+//
+//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        return 20 // 섹션의 바닥글 높이
+//    }
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
 }
 

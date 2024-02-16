@@ -9,7 +9,6 @@ import Foundation
 
 struct CSQuiz {
     let title: String
-    let details: String
     var isBookmarked: Bool
 }
 
