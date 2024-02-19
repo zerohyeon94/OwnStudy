@@ -8,12 +8,15 @@
 import Foundation
 import UIKit
 
+protocol CSInfoViewDelegate: AnyObject {
+    func bookmarkButtonTapped(index: Int)
+}
+
 // CS 정보 뷰
 class CSInfoView: UIView {
-    // UI 요소들을 정의하고 초기화하는 코드 추가
     
-    var allQuizzes: [CSQuiz] = []
-    var bookmarkedQuizzes: [CSQuiz] = []
+    weak var delegate: CSInfoViewDelegate?
+    var csInfoViewModel: CSInfoViewModel
     
     lazy var csInfotableView: UITableView = {
         let tableView = UITableView()
@@ -31,24 +34,22 @@ class CSInfoView: UIView {
     }()
     
     init(csInfoViewModel: CSInfoViewModel) {
-        print("csInfoViewModel: \(csInfoViewModel.allQuizzes.count)")
-        self.allQuizzes = csInfoViewModel.allQuizzes
-        self.bookmarkedQuizzes = csInfoViewModel.bookmarkedQuizzes
+        print("csInfoViewModel: \(csInfoViewModel.quizzes.count)")
+        self.csInfoViewModel = csInfoViewModel
         
         super.init(frame: .zero) // 상위 클래스의 초기화 메서드 호출
         setupUI() // UI 초기화
         csInfotableView.reloadData() // 테이블 뷰 데이터 리로드
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     //    override init(frame: CGRect) {
     //        super.init(frame: frame)
     //        setupUI()
     //    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setupUI()
-    }
     
     func setTableViewConstraints() {
         addSubview(csInfotableView)
@@ -67,7 +68,7 @@ class CSInfoView: UIView {
     }
     
     func updateView(with viewModel: CSInfoViewModel) {
-        print("viewModel: \(viewModel.allQuizzes.count)")
+        print("viewModel: \(viewModel.quizzes.count)")
         // 뷰모델로부터 받은 데이터를 사용하여 UI 업데이트
         // 예를 들어, 오늘의 퀴즈 표시 여부에 따라 UI를 조절
         if viewModel.shouldDisplayTodayQuiz {
@@ -80,7 +81,6 @@ class CSInfoView: UIView {
         // 즐겨찾기 문제와 전체 문제를 표시하는 UI 업데이트
         // 각각의 테이블뷰 또는 셀에 뷰모델의 데이터를 바인딩하여 표시
         
-        bookmarkedQuizzes = viewModel.bookmarkedQuizzes
         csInfotableView.reloadData()
     }
 }
@@ -88,12 +88,13 @@ class CSInfoView: UIView {
 // MARK: - TableView DataSource
 extension CSInfoView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allQuizzes.count
+        return csInfoViewModel.quizzes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CSInfoCell.cellIdentifier, for: indexPath) as! CSInfoCell
-        let quiz = allQuizzes[indexPath.row]
+        let quiz = csInfoViewModel.quizzes[indexPath.row]
+        print("quizzes[\(indexPath.row): \(quiz)]")
         
         // 선택된 상태일 때의 배경 뷰를 설정하여 선택 효과를 없앰 -> 우선 선택 효과 표시
 //        let selectedView = UIView()
@@ -132,12 +133,9 @@ extension CSInfoView: UITableViewDelegate {
 // MARK: - Action Handling
 extension CSInfoView {
     @objc func bookmarkButtonTapped(_ sender: UIButton) {
-        print("눌렀다!")
-        print("index: \(sender.tag)")
         let index = sender.tag
-        // 해당 문제에 대한 즐겨찾기 여부를 토글
-        bookmarkedQuizzes[index].isBookmarked.toggle()
-        // 버튼을 다시 그리기 위해 해당 셀을 다시 로드
-        csInfotableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        print("CSInfoView) \(index) Cell Click")
+        
+        delegate?.bookmarkButtonTapped(index: index)
     }
 }

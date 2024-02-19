@@ -19,10 +19,7 @@ class HomeViewController: UIViewController{
     // dummyData
     let csDummyData: CSInfoViewModel = CSInfoViewModel(csInfoModel: CSInfoModel(
         todayQuiz: CSQuiz(title: "오늘의 퀴즈 있음.",isBookmarked: true),
-        bookmarkedQuizzes: [CSQuiz(title: "문제 1", isBookmarked: true),
-                            CSQuiz(title: "문제 2", isBookmarked: true),
-                            CSQuiz(title: "문제 3", isBookmarked: true)],
-        allQuizzes: [CSQuiz(title: "문제 1", isBookmarked: true),
+        Quizzes: [CSQuiz(title: "문제 1", isBookmarked: true),
                      CSQuiz(title: "문제 2", isBookmarked: true),
                      CSQuiz(title: "문제 3", isBookmarked: true),
                      CSQuiz(title: "문제 4", isBookmarked: false),
@@ -142,7 +139,8 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             if let csInfoCell = cell as? HomeCSInfoCell {
                 csInfoCell.titleLabel.text = "Title \(indexPath.item + 1)"
                 // 문제 수와 즐겨찾기 수를 확인한 후 그 값을 저장. - 해당 함수는 ViewModel에 구현 예정
-                csInfoCell.setCount(questionCount: csDummyData.allQuizzes.count, bookmarkedCount: csDummyData.bookmarkedQuizzes.count)
+                let bookmarkedQuizzes =  csDummyData.quizzes.filter { $0.isBookmarked == true }
+                csInfoCell.setCount(questionCount: csDummyData.quizzes.count, bookmarkedCount: bookmarkedQuizzes.count)
                 csInfoCell.backgroundColor = colorArray[indexPath.item]
             }
         case .testCode:
