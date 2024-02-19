@@ -14,5 +14,5 @@ struct CSQuiz {
 
 struct CSInfoModel {
     var todayQuiz: CSQuiz? // 없을 수도 있어서.
-    var Quizzes: [CSQuiz]
+    var quizzes: [CSQuiz]
 }

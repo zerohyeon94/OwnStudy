@@ -26,6 +26,11 @@
 		CFC1E18B2B7D87B500F53745 /* HomeTestCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC1E18A2B7D87B500F53745 /* HomeTestCodeCell.swift */; };
 		CFC1E18E2B7D9F6C00F53745 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC1E18D2B7D9F6C00F53745 /* FirstViewController.swift */; };
 		CFC1E1902B7DA38400F53745 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC1E18F2B7DA38400F53745 /* SecondViewController.swift */; };
+		CFC1E1932B83243800F53745 /* TestCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC1E1922B83243800F53745 /* TestCodeModel.swift */; };
+		CFC1E1952B83247A00F53745 /* TestCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC1E1942B83247A00F53745 /* TestCodeViewModel.swift */; };
+		CFC1E1972B83288F00F53745 /* TestCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC1E1962B83288F00F53745 /* TestCodeViewController.swift */; };
+		CFC1E1992B83289B00F53745 /* TestCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC1E1982B83289B00F53745 /* TestCodeView.swift */; };
+		CFC1E19B2B8328AD00F53745 /* TestCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC1E19A2B8328AD00F53745 /* TestCodeCell.swift */; };
 		CFD0149D2B4BCAFC00E15BAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD0149C2B4BCAFC00E15BAC /* AppDelegate.swift */; };
 		CFD0149F2B4BCAFC00E15BAC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD0149E2B4BCAFC00E15BAC /* SceneDelegate.swift */; };
 		CFD014A72B4BCAFC00E15BAC /* OwnStudy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CFD014A52B4BCAFC00E15BAC /* OwnStudy.xcdatamodeld */; };
@@ -55,6 +60,11 @@
 		CFC1E18A2B7D87B500F53745 /* HomeTestCodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTestCodeCell.swift; sourceTree = "<group>"; };
 		CFC1E18D2B7D9F6C00F53745 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		CFC1E18F2B7DA38400F53745 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		CFC1E1922B83243800F53745 /* TestCodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCodeModel.swift; sourceTree = "<group>"; };
+		CFC1E1942B83247A00F53745 /* TestCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCodeViewModel.swift; sourceTree = "<group>"; };
+		CFC1E1962B83288F00F53745 /* TestCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCodeViewController.swift; sourceTree = "<group>"; };
+		CFC1E1982B83289B00F53745 /* TestCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCodeView.swift; sourceTree = "<group>"; };
+		CFC1E19A2B8328AD00F53745 /* TestCodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCodeCell.swift; sourceTree = "<group>"; };
 		CFD014992B4BCAFC00E15BAC /* OwnStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OwnStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFD0149C2B4BCAFC00E15BAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFD0149E2B4BCAFC00E15BAC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +136,10 @@
 		CFC1E1852B7D853F00F53745 /* TestCode */ = {
 			isa = PBXGroup;
 			children = (
+				CFC1E1982B83289B00F53745 /* TestCodeView.swift */,
+				CFC1E1962B83288F00F53745 /* TestCodeViewController.swift */,
+				CFC1E19A2B8328AD00F53745 /* TestCodeCell.swift */,
+				CFC1E1912B83240900F53745 /* KVO */,
 				CFC1E18C2B7D9F5000F53745 /* Delegate */,
 			);
 			path = TestCode;
@@ -138,6 +152,13 @@
 				CFC1E18F2B7DA38400F53745 /* SecondViewController.swift */,
 			);
 			path = Delegate;
+			sourceTree = "<group>";
+		};
+		CFC1E1912B83240900F53745 /* KVO */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = KVO;
 			sourceTree = "<group>";
 		};
 		CFD014902B4BCAFC00E15BAC = {
@@ -177,6 +198,7 @@
 			children = (
 				CFD014B62B4BD86C00E15BAC /* HomeModel.swift */,
 				CF00E0582B70C91200D36591 /* CSInfoModel.swift */,
+				CFC1E1922B83243800F53745 /* TestCodeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -196,6 +218,7 @@
 			children = (
 				CFD014BA2B4BD88000E15BAC /* HomeViewModel.swift */,
 				CF00E05D2B71F45F00D36591 /* CSInfoViewModel.swift */,
+				CFC1E1942B83247A00F53745 /* TestCodeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -282,7 +305,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFC1E19B2B8328AD00F53745 /* TestCodeCell.swift in Sources */,
 				CFD0149D2B4BCAFC00E15BAC /* AppDelegate.swift in Sources */,
+				CFC1E1972B83288F00F53745 /* TestCodeViewController.swift in Sources */,
+				CFC1E1952B83247A00F53745 /* TestCodeViewModel.swift in Sources */,
 				CFD014BB2B4BD88000E15BAC /* HomeViewModel.swift in Sources */,
 				CFD014A72B4BCAFC00E15BAC /* OwnStudy.xcdatamodeld in Sources */,
 				CF00E0652B72150600D36591 /* CSInfoCell.swift in Sources */,
@@ -294,12 +320,14 @@
 				CFC1E18E2B7D9F6C00F53745 /* FirstViewController.swift in Sources */,
 				CF3F467C2B6CE1180064777F /* HomeQuizCell.swift in Sources */,
 				CF00E0612B71F49800D36591 /* CSInfoView.swift in Sources */,
+				CFC1E1932B83243800F53745 /* TestCodeModel.swift in Sources */,
 				CFC1E1902B7DA38400F53745 /* SecondViewController.swift in Sources */,
 				CF3F46852B6CEEF70064777F /* AppTheme.swift in Sources */,
 				CF00E0632B71F4AF00D36591 /* CSInfoViewController.swift in Sources */,
 				CFD014B72B4BD86C00E15BAC /* HomeModel.swift in Sources */,
 				CF00E05E2B71F45F00D36591 /* CSInfoViewModel.swift in Sources */,
 				CFD0149F2B4BCAFC00E15BAC /* SceneDelegate.swift in Sources */,
+				CFC1E1992B83289B00F53745 /* TestCodeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,10 +21,10 @@ class CSInfoViewModel {
     
     var quizzes: [CSQuiz] {
         get {
-            return csInfoModel.Quizzes
+            return csInfoModel.quizzes
         }
         set {
-            csInfoModel.Quizzes = newValue
+            csInfoModel.quizzes = newValue
         }
     }
     

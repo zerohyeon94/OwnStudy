@@ -19,11 +19,17 @@ class HomeViewController: UIViewController{
     // dummyData
     let csDummyData: CSInfoViewModel = CSInfoViewModel(csInfoModel: CSInfoModel(
         todayQuiz: CSQuiz(title: "오늘의 퀴즈 있음.",isBookmarked: true),
-        Quizzes: [CSQuiz(title: "문제 1", isBookmarked: true),
+        quizzes: [CSQuiz(title: "문제 1", isBookmarked: true),
                      CSQuiz(title: "문제 2", isBookmarked: true),
                      CSQuiz(title: "문제 3", isBookmarked: true),
                      CSQuiz(title: "문제 4", isBookmarked: false),
                      CSQuiz(title: "문제 5", isBookmarked: false)]))
+    let testDummyData: TestCodeViewModel = TestCodeViewModel(testCodeModel: TestCodeModel(
+        todayQuiz: TestCode(title: "오늘의 퀴즈 있음", isBookmarked: true),
+        testCodes: [TestCode(title: "Delegate 패턴", isBookmarked: true),
+                    TestCode(title: "KVO", isBookmarked: true),
+                    TestCode(title: "test Code 1", isBookmarked: false),
+                    TestCode(title: "test Code 2", isBookmarked: false)]))
     
     // 오늘 날짜. 공부가 유지되는 일차 표시
     lazy var dateLabel: UILabel = {
@@ -185,8 +191,10 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             navigationController?.pushViewController(csInfoViewController, animated: true)
         case .testCode:
             print("testCode")
-            let firstViewController = FirstViewController()
-            navigationController?.pushViewController(firstViewController, animated: true)
+            let testCodeViewController = TestCodeViewController(testCodeViewModel: testDummyData)
+            navigationController?.pushViewController(testCodeViewController, animated: true)
+//            let firstViewController = FirstViewController()
+//            navigationController?.pushViewController(firstViewController, animated: true)
         }
     }
 }
