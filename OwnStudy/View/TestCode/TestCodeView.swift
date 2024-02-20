@@ -10,13 +10,14 @@ import UIKit
 
 protocol TestCodeViewDelegate: AnyObject {
     func bookmarkButtonTapped(index: Int)
+    func cellSelected(index: Int)
 }
 
 // CS 정보 뷰
 class TestCodeView: UIView {
     
     weak var delegate: TestCodeViewDelegate?
-    var testCodeViewModel: TestCodeViewModel
+    var viewModel: TestCodeViewModel
     
     lazy var contentTableView: UITableView = {
         let tableView = UITableView()
@@ -30,7 +31,7 @@ class TestCodeView: UIView {
     
     init(testCodeViewModel: TestCodeViewModel) {
         print("testCodeViewModel: \(testCodeViewModel.testCodes.count)")
-        self.testCodeViewModel = testCodeViewModel
+        self.viewModel = testCodeViewModel
         
         super.init(frame: .zero) // 상위 클래스의 초기화 메서드 호출
         
@@ -79,12 +80,12 @@ class TestCodeView: UIView {
 // MARK: - TableView DataSource
 extension TestCodeView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return testCodeViewModel.testCodes.count
+        return viewModel.testCodes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TestCodeCell.cellIdentifier, for: indexPath) as! TestCodeCell
-        let testCode = testCodeViewModel.testCodes[indexPath.row]
+        let testCode = viewModel.testCodes[indexPath.row]
         print("testCodes[\(indexPath.row): \(testCode)]")
         
         // 선택된 상태일 때의 배경 뷰를 설정하여 선택 효과를 없앰 -> 우선 선택 효과 표시
@@ -112,6 +113,21 @@ extension TestCodeView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 셀이 선택되었을 때 필요한 동작을 구현
+        let index = indexPath.row
+        let selectedCellType = viewModel.cellTypes[index]
+        
+        // 페이지로 이동하는 코드
+        switch selectedCellType {
+        case .delegate:
+            print("delegate")
+            delegate?.cellSelected(index: index)
+            break
+        case .kvo:
+            print("kvo")
+            // HomeViewController에서 CSInfo의 데이터를 가지고 오고, 해당 데이터를 넘겨주는게 좋음.
+//            let csInfoViewController = CSInfoViewController(csInfoViewModel: csDummyData) // 예시 뷰 컨트롤러
+//            navigationController?.pushViewController(csInfoViewController, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

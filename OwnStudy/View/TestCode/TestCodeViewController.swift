@@ -77,4 +77,22 @@ extension TestCodeViewController: TestCodeViewDelegate {
         let indexPath = IndexPath(row: index, section: 0)
         testCodeView.contentTableView.reloadRows(at: [indexPath], with: .automatic)
     }
+    
+    func cellSelected(index: Int) {
+        print("cell Selected: \(index)")
+        
+        let selectedCellType = testCodeViewModel.cellTypes[index]
+        
+        // 페이지로 이동하는 코드
+        switch selectedCellType {
+        case .delegate:
+            print("delegate")
+            let delegateViewController = FirstViewController()
+            navigationController?.pushViewController(delegateViewController, animated: true)
+        case .kvo:
+            print("kvo")
+//            let delegateViewController = FirstViewController()
+//            navigationController?.pushViewController(delegateViewController, animated: true)
+        }
+    }
 }

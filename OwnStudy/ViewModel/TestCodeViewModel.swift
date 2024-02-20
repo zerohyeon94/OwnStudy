@@ -7,8 +7,15 @@
 
 import Foundation
 
+enum TestCodeCellType {
+    case delegate
+    case kvo
+}
+
 // CS 정보 뷰모델
 class TestCodeViewModel {
+    var cellTypes: [TestCodeCellType] = [.delegate, .kvo]
+    
     var testCodeModel: TestCodeModel
     
     init(testCodeModel: TestCodeModel) {

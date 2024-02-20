@@ -31,6 +31,7 @@
 		CFC1E1972B83288F00F53745 /* TestCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC1E1962B83288F00F53745 /* TestCodeViewController.swift */; };
 		CFC1E1992B83289B00F53745 /* TestCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC1E1982B83289B00F53745 /* TestCodeView.swift */; };
 		CFC1E19B2B8328AD00F53745 /* TestCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC1E19A2B8328AD00F53745 /* TestCodeCell.swift */; };
+		CFC1E19D2B84761900F53745 /* KVOViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC1E19C2B84761900F53745 /* KVOViewController.swift */; };
 		CFD0149D2B4BCAFC00E15BAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD0149C2B4BCAFC00E15BAC /* AppDelegate.swift */; };
 		CFD0149F2B4BCAFC00E15BAC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD0149E2B4BCAFC00E15BAC /* SceneDelegate.swift */; };
 		CFD014A72B4BCAFC00E15BAC /* OwnStudy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CFD014A52B4BCAFC00E15BAC /* OwnStudy.xcdatamodeld */; };
@@ -65,6 +66,7 @@
 		CFC1E1962B83288F00F53745 /* TestCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCodeViewController.swift; sourceTree = "<group>"; };
 		CFC1E1982B83289B00F53745 /* TestCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCodeView.swift; sourceTree = "<group>"; };
 		CFC1E19A2B8328AD00F53745 /* TestCodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCodeCell.swift; sourceTree = "<group>"; };
+		CFC1E19C2B84761900F53745 /* KVOViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KVOViewController.swift; sourceTree = "<group>"; };
 		CFD014992B4BCAFC00E15BAC /* OwnStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OwnStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFD0149C2B4BCAFC00E15BAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFD0149E2B4BCAFC00E15BAC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 		CFC1E1912B83240900F53745 /* KVO */ = {
 			isa = PBXGroup;
 			children = (
+				CFC1E19C2B84761900F53745 /* KVOViewController.swift */,
 			);
 			path = KVO;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				CF00E0612B71F49800D36591 /* CSInfoView.swift in Sources */,
 				CFC1E1932B83243800F53745 /* TestCodeModel.swift in Sources */,
 				CFC1E1902B7DA38400F53745 /* SecondViewController.swift in Sources */,
+				CFC1E19D2B84761900F53745 /* KVOViewController.swift in Sources */,
 				CF3F46852B6CEEF70064777F /* AppTheme.swift in Sources */,
 				CF00E0632B71F4AF00D36591 /* CSInfoViewController.swift in Sources */,
 				CFD014B72B4BD86C00E15BAC /* HomeModel.swift in Sources */,

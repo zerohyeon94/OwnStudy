@@ -27,9 +27,7 @@ class HomeViewController: UIViewController{
     let testDummyData: TestCodeViewModel = TestCodeViewModel(testCodeModel: TestCodeModel(
         todayQuiz: TestCode(title: "오늘의 퀴즈 있음", isBookmarked: true),
         testCodes: [TestCode(title: "Delegate 패턴", isBookmarked: true),
-                    TestCode(title: "KVO", isBookmarked: true),
-                    TestCode(title: "test Code 1", isBookmarked: false),
-                    TestCode(title: "test Code 2", isBookmarked: false)]))
+                    TestCode(title: "KVO", isBookmarked: true)]))
     
     // 오늘 날짜. 공부가 유지되는 일차 표시
     lazy var dateLabel: UILabel = {
