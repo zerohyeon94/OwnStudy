@@ -9,12 +9,10 @@ import Foundation
 
 struct CSQuiz {
     let title: String
-    let details: String
     var isBookmarked: Bool
 }
 
 struct CSInfoModel {
-    let todayQuiz: CSQuiz? // 없을 수도 있어서.
-    let bookmarkedQuizzes: [CSQuiz]
-    let allQuizzes: [CSQuiz]
+    var todayQuiz: CSQuiz? // 없을 수도 있어서.
+    var quizzes: [CSQuiz]
 }

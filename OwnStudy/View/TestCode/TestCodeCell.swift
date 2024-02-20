@@ -1,15 +1,15 @@
 //
-//  CSInfoCell.swift
+//  TestCodeCell.swift
 //  OwnStudy
 //
-//  Created by 조영현 on 2/6/24.
+//  Created by 조영현 on 2/19/24.
 //
 
 import Foundation
 import UIKit
 
-class CSInfoCell: UITableViewCell {
-    static let cellIdentifier = "CSInfoCell"
+class TestCodeCell: UITableViewCell {
+    static let cellIdentifier = "TestCodeCell"
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -31,7 +31,7 @@ class CSInfoCell: UITableViewCell {
         return button
     }()
     
-    lazy var csInfoStackView: UIStackView = {
+    lazy var contentStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [titleLabel, bookmarkButton])
         stackView.backgroundColor = .clear
         stackView.spacing = 0
@@ -58,39 +58,11 @@ class CSInfoCell: UITableViewCell {
         
     }
     
-    // cell 선택시 변경되는 효과
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//        
-//        if selected {
-//            contentView.layer.borderWidth = 2
-//            contentView.layer.borderColor = UIColor.blue.cgColor
-//        } else {
-//            contentView.layer.borderWidth = 1
-//            contentView.layer.borderColor = UIColor.lightGray.cgColor
-//        }
-//    }
-    
-    // cell 사이의 간격을 두지 않고 한열로 배열하기 위해서 사용하지 않음.
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        
-//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16))
-//    }
-    
-    // 테투리 사용하지 않음.
-//    private func setLayer() {
-//        layer.borderColor = UIColor.black.cgColor // 테두리 색상
-//        layer.borderWidth = 1.0 // 테두리 두께
-//        layer.cornerRadius = 10.0 // 모서리를 둥글게
-//        layer.masksToBounds = true // 뷰의 내용이 테두리를 넘어가지 않도록 범위 설정.
-//    }
-    
     func autoLayout() {
         // 셀에 UI 요소 추가
-        contentView.addSubview(csInfoStackView)
+        contentView.addSubview(contentStackView)
         
-        csInfoStackView.snp.makeConstraints { make in
+        contentStackView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16))
         }
         
@@ -100,9 +72,6 @@ class CSInfoCell: UITableViewCell {
     }
     
     private func setupUI() {
-        //        contentView.backgroundColor = .clear
-        
-//        setLayer()
         autoLayout()
     }
 }
