@@ -14,6 +14,10 @@ struct AppTheme {
         static let secondary = UIColor.green
         static let text = UIColor.black
         
+        struct Button {
+            static let isSelected = UIColor.green
+            static let isNotSelected = UIColor.lightGray
+        }
     }
 
     struct Font {

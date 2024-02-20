@@ -10,7 +10,7 @@ import Foundation
 enum CellType {
     case quiz
     case csInfo
-//    case testCode
+    case testCode
     //    case swiftSyntax
     // 추가적인 셀 유형들...
     
@@ -20,7 +20,8 @@ enum CellType {
             return HomeQuizCell.cellIdentifier
         case .csInfo:
             return HomeCSInfoCell.cellIdentifier
-//        case .testCode:
+        case .testCode:
+            return HomeTestCodeCell.cellIdentifier
             
             //        case .swiftSyntax:
             //            return SwiftSyntaxCell.cellIdentifier
@@ -34,18 +35,20 @@ enum CellType {
 class HomeViewModel {
     var quizData: HomeModel.TodayQuiz
     var csInfoData: HomeModel.CSInfo
+    var testCodeData: HomeModel.TestCode
     //    var swiftSyntaxData: HomeModel.SwiftSyntax
     //    var techInterviewData: HomeModel.TechInterview
     //    var codingTestData: HomeModel.CodingTest
     //    var projectInfoData: HomeModel.ProjectInfo
     
-    var cellTypes: [CellType] = [.quiz, .csInfo] // , .csInfo, .swiftSyntax
-    var cellHeightSize: [CGFloat] = [210, 160]
+    var cellTypes: [CellType] = [.quiz, .csInfo, .testCode] // , .csInfo, .swiftSyntax
+    var cellHeightSize: [CGFloat] = [210, 160, 160]
     
     init() {
         // 데이터 초기화 및 필요한 로직 수행...
         quizData = HomeModel.TodayQuiz(title: "오늘의 퀴즈", question: "프로젝트의 이름은?", answer: "온스터디")
         csInfoData = HomeModel.CSInfo(title: "CS 정보", questionCount: 10, bookmarkedCount: 5)
+        testCodeData = HomeModel.TestCode(recentTestTitle: "가장 최근에 추가된 테스트", codeTestCount: 5, bookmarkedCount: 1)
     }
     
     // 현재 날짜

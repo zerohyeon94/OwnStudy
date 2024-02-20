@@ -11,22 +11,9 @@ import SnapKit
 
 // CS 정보 뷰컨트롤러
 class CSInfoViewController: UIViewController {
-    private let csInfoViewModel: CSInfoViewModel
-    private let csInfoView: CSInfoView
+    var csInfoViewModel: CSInfoViewModel
+    var csInfoView: CSInfoView
 
-    init(csInfoViewModel: CSInfoViewModel) {
-        print("csInfoViewModel: \(csInfoViewModel.allQuizzes.count)")
-        self.csInfoViewModel = csInfoViewModel
-        self.csInfoView = CSInfoView(csInfoViewModel: csInfoViewModel) // csInfoViewModel 전달
-
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        // NavigationBar 숨김.
-        navigationController?.isNavigationBarHidden = false
-    }
-    
     lazy var dateLabel: UILabel = {
         let label = UILabel()
         
@@ -39,11 +26,28 @@ class CSInfoViewController: UIViewController {
         return label
     }()
     
+    init(csInfoViewModel: CSInfoViewModel) {
+        print("csInfoViewModel: \(csInfoViewModel.quizzes.count)")
+        self.csInfoViewModel = csInfoViewModel
+        self.csInfoView = CSInfoView(csInfoViewModel: csInfoViewModel) // csInfoViewModel 전달
+
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear")
+        navigationController?.isNavigationBarHidden = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("CSInfo")
+        print("viewDidLoad")
         view.backgroundColor = .white
+        csInfoView.delegate = self
 
 //        view.addSubview(dateLabel) // date관련된 정보를 모은 UItitleStackView를 뷰에 추가
 //        
@@ -64,8 +68,21 @@ class CSInfoViewController: UIViewController {
         // 뷰모델을 통해 데이터 업데이트
         csInfoView.updateView(with: csInfoViewModel)
     }
+}
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+// MARK: - Action Handling
+extension CSInfoViewController: CSInfoViewDelegate {
+    func bookmarkButtonTapped(index: Int) {
+        print("CSInfoViewController) \(index) Cell Click")
+        
+        print("csInfoViewModel.quizzes[\(index)]: \(csInfoViewModel.quizzes[index])")
+        // 해당 문제에 대한 즐겨찾기 여부를 토글
+        
+        csInfoViewModel.quizzes[index].isBookmarked.toggle()
+        
+        print("csInfoViewModel.quizzes[\(index)]: \(csInfoViewModel.quizzes[index])")
+        // 버튼을 다시 그리기 위해 해당 셀을 다시 로드
+        let indexPath = IndexPath(row: index, section: 0)
+        csInfoView.csInfotableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }
