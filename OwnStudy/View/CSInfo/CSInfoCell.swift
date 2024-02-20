@@ -36,7 +36,7 @@ class CSInfoCell: UITableViewCell {
         stackView.backgroundColor = .clear
         stackView.spacing = 0
         stackView.axis = .horizontal
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .fill
         stackView.alignment = .fill
         
         stackView.translatesAutoresizingMaskIntoConstraints = false

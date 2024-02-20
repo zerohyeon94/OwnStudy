@@ -23,13 +23,13 @@ class TestCodeView: UIView {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.backgroundColor = .white
-        tableView.register(CSInfoCell.self, forCellReuseIdentifier: CSInfoCell.cellIdentifier)
+        tableView.register(TestCodeCell.self, forCellReuseIdentifier: TestCodeCell.cellIdentifier)
 
         return tableView
     }()
     
     init(testCodeViewModel: TestCodeViewModel) {
-        print("csInfoViewModel: \(testCodeViewModel.testCodes.count)")
+        print("testCodeViewModel: \(testCodeViewModel.testCodes.count)")
         self.testCodeViewModel = testCodeViewModel
         
         super.init(frame: .zero) // 상위 클래스의 초기화 메서드 호출
@@ -83,7 +83,7 @@ extension TestCodeView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CSInfoCell.cellIdentifier, for: indexPath) as! CSInfoCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TestCodeCell.cellIdentifier, for: indexPath) as! TestCodeCell
         let testCode = testCodeViewModel.testCodes[indexPath.row]
         print("testCodes[\(indexPath.row): \(testCode)]")
         
