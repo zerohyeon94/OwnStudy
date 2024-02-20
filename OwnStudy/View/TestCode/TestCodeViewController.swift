@@ -91,8 +91,8 @@ extension TestCodeViewController: TestCodeViewDelegate {
             navigationController?.pushViewController(delegateViewController, animated: true)
         case .kvo:
             print("kvo")
-//            let delegateViewController = FirstViewController()
-//            navigationController?.pushViewController(delegateViewController, animated: true)
+            let kvoViewController = KVOViewController()
+            navigationController?.pushViewController(kvoViewController, animated: true)
         }
     }
 }

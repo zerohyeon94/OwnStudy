@@ -124,9 +124,7 @@ extension TestCodeView: UITableViewDelegate {
             break
         case .kvo:
             print("kvo")
-            // HomeViewController에서 CSInfo의 데이터를 가지고 오고, 해당 데이터를 넘겨주는게 좋음.
-//            let csInfoViewController = CSInfoViewController(csInfoViewModel: csDummyData) // 예시 뷰 컨트롤러
-//            navigationController?.pushViewController(csInfoViewController, animated: true)
+            delegate?.cellSelected(index: index)
         }
     }
     

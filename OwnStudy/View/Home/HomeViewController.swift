@@ -97,10 +97,10 @@ class HomeViewController: UIViewController{
         collectionView.register(HomeCSInfoCell.self, forCellWithReuseIdentifier: HomeCSInfoCell.cellIdentifier)
         collectionView.register(HomeTestCodeCell.self, forCellWithReuseIdentifier: HomeTestCodeCell.cellIdentifier)
         
-        autoLayout()
+        configureLayout()
     }
     
-    func autoLayout() {
+    func configureLayout() {
         view.addSubview(titleStackView) // date관련된 정보를 모은 UItitleStackView를 뷰에 추가
         view.addSubview(collectionView) // UICollectionView를 뷰에 추가
         
