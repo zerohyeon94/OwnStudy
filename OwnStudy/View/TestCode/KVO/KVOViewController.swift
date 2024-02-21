@@ -33,24 +33,72 @@ class KVOViewController: UIViewController {
         return button
     }()
     
-    lazy var buttonObserverLabel: UILabel = {
+    // Label Obesrver 용
+    private let labelObserverImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(systemName: "circle")
+        imageView.clipsToBounds = false
+        imageView.tintColor = .black
+        return imageView
+    }()
+    
+    private let labelObserverLabel: UILabel = {
         let label = UILabel()
+        
+        label.text = "Label Observer"
+        label.textColor = AppTheme.Color.text
+        label.font = AppTheme.Font.Cell.body
+        label.textAlignment = .left
+        
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.textAlignment = .center
-        
-        // 이미지와 텍스트를 함께 표시할 NSMutableAttributedString 생성
-        let attributedString = NSMutableAttributedString(string: "count: ")
-        let textAttachment = NSTextAttachment()
-        textAttachment.image = UIImage(systemName: "heart.fill")
-        let imageString = NSAttributedString(attachment: textAttachment)
-        attributedString.append(imageString)
-        
-        // UILabel에 NSAttributedString 설정
-        label.attributedText = attributedString
-        
         return label
+    }()
+    
+    lazy var labelObserverStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [labelObserverImageView, labelObserverLabel])
+        stackView.backgroundColor = .clear
+        stackView.spacing = 10
+        stackView.axis = .horizontal
+        stackView.distribution = .fillProportionally
+        stackView.alignment = .fill
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    // Button Observer 용
+    private let buttonObserverImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(systemName: "circle")
+        imageView.tintColor = .black
+        imageView.clipsToBounds = false
+        return imageView
+    }()
+    
+    private let buttonObserverLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = "Button Observer"
+        label.textColor = AppTheme.Color.text
+        label.font = AppTheme.Font.Cell.body
+        label.textAlignment = .left
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    lazy var buttonObserverStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [buttonObserverImageView, buttonObserverLabel])
+        stackView.backgroundColor = .clear
+        stackView.spacing = 10
+        stackView.axis = .horizontal
+        stackView.distribution = .fillProportionally
+        stackView.alignment = .fill
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
     }()
     
     private var buttonObserver: NSKeyValueObservation?
@@ -74,7 +122,8 @@ class KVOViewController: UIViewController {
     func configureLayout() {
         view.addSubview(label)
         view.addSubview(button)
-        view.addSubview(buttonObserverLabel)
+        view.addSubview(labelObserverStackView)
+        view.addSubview(buttonObserverStackView)
         
         label.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(0)
@@ -86,17 +135,36 @@ class KVOViewController: UIViewController {
             make.leading.trailing.equalToSuperview().inset(16)
         }
         
-        buttonObserverLabel.snp.makeConstraints { make in
+        labelObserverStackView.snp.makeConstraints { make in
             make.top.equalTo(button.snp.bottom).offset(30)
-            make.leading.trailing.equalToSuperview().inset(16)
+            make.trailing.equalToSuperview().inset(16)
+            make.width.equalTo(200)
+        }
+        
+        buttonObserverStackView.snp.makeConstraints { make in
+            make.top.equalTo(labelObserverStackView.snp.bottom).offset(10)
+            make.trailing.equalToSuperview().inset(16)
+            make.width.equalTo(200)
         }
     }
     
     func observerButton() {
-        buttonObserver = button.observe(\.isHighlighted) { [weak self] object, _ in
+        buttonObserver = button.observe(\.isHighlighted, options: [.old, .new, .initial, .prior]) { [weak self] object, change in
             guard let self, object.isHighlighted else { return }
-            print("observerButton() 메서드가 감지하였다.")
             
+            // 감지 상태를 표시
+            print("observerButton() 메서드가 감지하였다.")
+            buttonObserverImageView.image = UIImage(systemName: "circle.fill")
+            buttonObserverImageView.tintColor = .green
+            // 1초 뒤에 원상 복귀
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.buttonObserverImageView.image = UIImage(systemName: "circle")
+                self.buttonObserverImageView.tintColor = .black
+            }
+            
+            print("Button 변경 정보: \(change)")
+            
+            // UI적으로 변경되는 것
             count += 1
             label.text = "count: \(count)"
         }
@@ -106,8 +174,15 @@ class KVOViewController: UIViewController {
         labelObserver = label.observe(\.text, options: [.old, .new, .initial, .prior]) { [weak self] label, change in
             guard let self, label.text != nil else { return }
             print("observerLabel() 메서드가 감지하였다.")
+            labelObserverImageView.image = UIImage(systemName: "circle.fill")
+            labelObserverImageView.tintColor = .yellow
+            // 1초 뒤에 원상 복귀
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.labelObserverImageView.image = UIImage(systemName: "circle")
+                self.labelObserverImageView.tintColor = .black
+            }
             
-            print("변경 정보: \(change)")
+            print("Label 변경 정보: \(change)")
             print("change.newValue: \(change.newValue)")
             print("change.oldValue: \(change.oldValue)")
             print("------------------------------------------------------------")
