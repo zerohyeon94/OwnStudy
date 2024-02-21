@@ -18,6 +18,11 @@ struct AppTheme {
             static let isSelected = UIColor.green
             static let isNotSelected = UIColor.lightGray
         }
+        
+        struct Observer {
+            static let isObserved = UIColor.yellow
+            static let isNotObserved = UIColor.black
+        }
     }
 
     struct Font {
