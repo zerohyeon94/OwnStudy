@@ -19,6 +19,7 @@ struct AppTheme {
             static let isNotSelected = UIColor.lightGray
         }
         
+        // stash Test
         struct Observer {
             static let isObserved = UIColor.yellow
             static let isNotObserved = UIColor.black

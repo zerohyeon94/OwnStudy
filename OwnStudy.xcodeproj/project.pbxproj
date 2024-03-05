@@ -23,6 +23,9 @@
 		CF3F467C2B6CE1180064777F /* HomeQuizCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3F467B2B6CE1180064777F /* HomeQuizCell.swift */; };
 		CF3F46852B6CEEF70064777F /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3F46842B6CEEF70064777F /* AppTheme.swift */; };
 		CF3F46892B6CF56F0064777F /* HomeCommonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3F46882B6CF56F0064777F /* HomeCommonCell.swift */; };
+		CF4874082B92E0E5003AA724 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4874072B92E0E5003AA724 /* UserModel.swift */; };
+		CF48741D2B95C2EF003AA724 /* UserInfoEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF48741B2B95C2EF003AA724 /* UserInfoEntity+CoreDataClass.swift */; };
+		CF48741E2B95C2EF003AA724 /* UserInfoEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF48741C2B95C2EF003AA724 /* UserInfoEntity+CoreDataProperties.swift */; };
 		CFC1E18B2B7D87B500F53745 /* HomeTestCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC1E18A2B7D87B500F53745 /* HomeTestCodeCell.swift */; };
 		CFC1E18E2B7D9F6C00F53745 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC1E18D2B7D9F6C00F53745 /* FirstViewController.swift */; };
 		CFC1E1902B7DA38400F53745 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC1E18F2B7DA38400F53745 /* SecondViewController.swift */; };
@@ -58,6 +61,9 @@
 		CF3F467B2B6CE1180064777F /* HomeQuizCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeQuizCell.swift; sourceTree = "<group>"; };
 		CF3F46842B6CEEF70064777F /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		CF3F46882B6CF56F0064777F /* HomeCommonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCommonCell.swift; sourceTree = "<group>"; };
+		CF4874072B92E0E5003AA724 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		CF48741B2B95C2EF003AA724 /* UserInfoEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserInfoEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CF48741C2B95C2EF003AA724 /* UserInfoEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserInfoEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CFC1E18A2B7D87B500F53745 /* HomeTestCodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTestCodeCell.swift; sourceTree = "<group>"; };
 		CFC1E18D2B7D9F6C00F53745 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		CFC1E18F2B7DA38400F53745 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +141,16 @@
 			path = AppSetup;
 			sourceTree = "<group>";
 		};
+		CF4874062B92E0D5003AA724 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				CF48741B2B95C2EF003AA724 /* UserInfoEntity+CoreDataClass.swift */,
+				CF48741C2B95C2EF003AA724 /* UserInfoEntity+CoreDataProperties.swift */,
+				CF4874072B92E0E5003AA724 /* UserModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		CFC1E1852B7D853F00F53745 /* TestCode */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +215,7 @@
 		CFD014B32B4BD47F00E15BAC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CF4874062B92E0D5003AA724 /* Login */,
 				CFD014B62B4BD86C00E15BAC /* HomeModel.swift */,
 				CF00E0582B70C91200D36591 /* CSInfoModel.swift */,
 				CFC1E1922B83243800F53745 /* TestCodeModel.swift */,
@@ -311,11 +328,13 @@
 				CFC1E19B2B8328AD00F53745 /* TestCodeCell.swift in Sources */,
 				CFD0149D2B4BCAFC00E15BAC /* AppDelegate.swift in Sources */,
 				CFC1E1972B83288F00F53745 /* TestCodeViewController.swift in Sources */,
+				CF48741E2B95C2EF003AA724 /* UserInfoEntity+CoreDataProperties.swift in Sources */,
 				CFC1E1952B83247A00F53745 /* TestCodeViewModel.swift in Sources */,
 				CFD014BB2B4BD88000E15BAC /* HomeViewModel.swift in Sources */,
 				CFD014A72B4BCAFC00E15BAC /* OwnStudy.xcdatamodeld in Sources */,
 				CF00E0652B72150600D36591 /* CSInfoCell.swift in Sources */,
 				CF00E0592B70C91200D36591 /* CSInfoModel.swift in Sources */,
+				CF4874082B92E0E5003AA724 /* UserModel.swift in Sources */,
 				CFC1E18B2B7D87B500F53745 /* HomeTestCodeCell.swift in Sources */,
 				CF3F46892B6CF56F0064777F /* HomeCommonCell.swift in Sources */,
 				CF00E05B2B70CE1900D36591 /* HomeCSInfoCell.swift in Sources */,
@@ -332,6 +351,7 @@
 				CF00E05E2B71F45F00D36591 /* CSInfoViewModel.swift in Sources */,
 				CFD0149F2B4BCAFC00E15BAC /* SceneDelegate.swift in Sources */,
 				CFC1E1992B83289B00F53745 /* TestCodeView.swift in Sources */,
+				CF48741D2B95C2EF003AA724 /* UserInfoEntity+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

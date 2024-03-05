@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SnapKit
+import CoreData
 
 // ViewModel과 상호작용하여 화면을 구성하는 곳.
 class HomeViewController: UIViewController{
@@ -20,10 +21,10 @@ class HomeViewController: UIViewController{
     let csDummyData: CSInfoViewModel = CSInfoViewModel(csInfoModel: CSInfoModel(
         todayQuiz: CSQuiz(title: "오늘의 퀴즈 있음.",isBookmarked: true),
         quizzes: [CSQuiz(title: "문제 1", isBookmarked: true),
-                     CSQuiz(title: "문제 2", isBookmarked: true),
-                     CSQuiz(title: "문제 3", isBookmarked: true),
-                     CSQuiz(title: "문제 4", isBookmarked: false),
-                     CSQuiz(title: "문제 5", isBookmarked: false)]))
+                  CSQuiz(title: "문제 2", isBookmarked: true),
+                  CSQuiz(title: "문제 3", isBookmarked: true),
+                  CSQuiz(title: "문제 4", isBookmarked: false),
+                  CSQuiz(title: "문제 5", isBookmarked: false)]))
     let testDummyData: TestCodeViewModel = TestCodeViewModel(testCodeModel: TestCodeModel(
         todayQuiz: TestCode(title: "오늘의 퀴즈 있음", isBookmarked: true),
         testCodes: [TestCode(title: "Delegate 패턴", isBookmarked: true),
@@ -98,6 +99,58 @@ class HomeViewController: UIViewController{
         collectionView.register(HomeTestCodeCell.self, forCellWithReuseIdentifier: HomeTestCodeCell.cellIdentifier)
         
         configureLayout()
+        
+        // Core Data 확인
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let entity = NSEntityDescription.entity(forEntityName: "UserInfoEntity", in: context)
+        
+        let zero = UserModel(id: "zero123",
+                             password: "123123",
+                             name: "조영현",
+                             age: 31,
+                             goal: ["iOS 개발자 되기",
+                                    "Clean Code 작성하기",
+                                    "꾸준히 성장하기"])
+        
+        // enetity가 nil이 아닌 경우에만 실행하기 위해 옵셔널 바인딩을 사용한다.
+        if let entity = entity {
+            let user = NSManagedObject(entity: entity, insertInto: context)
+            
+            user.setValue(zero.id, forKey: "id")
+            user.setValue(zero.password, forKey: "password")
+            user.setValue(zero.name, forKey: "name")
+            user.setValue(zero.age, forKey: "age")
+            user.setValue(zero.goal, forKey: "goal")
+            
+            do {
+                try context.save()
+                print("success")
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        
+        fetchContact()
+    }
+    
+    func fetchContact() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        do {
+            let contact = try context.fetch(UserInfoEntity.fetchRequest()) as! [UserInfoEntity]
+            contact.forEach {
+                print($0.id)
+                print($0.password)
+                print($0.name)
+                print($0.age)
+                print($0.goal)
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
     func configureLayout() {
@@ -191,8 +244,8 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             print("testCode")
             let testCodeViewController = TestCodeViewController(testCodeViewModel: testDummyData)
             navigationController?.pushViewController(testCodeViewController, animated: true)
-//            let firstViewController = FirstViewController()
-//            navigationController?.pushViewController(firstViewController, animated: true)
+            //            let firstViewController = FirstViewController()
+            //            navigationController?.pushViewController(firstViewController, animated: true)
         }
     }
 }
