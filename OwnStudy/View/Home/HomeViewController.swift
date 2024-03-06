@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import SnapKit
 import CoreData
+import RxSwift
 
 // ViewModel과 상호작용하여 화면을 구성하는 곳.
 class HomeViewController: UIViewController{
