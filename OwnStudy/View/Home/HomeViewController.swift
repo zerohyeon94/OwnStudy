@@ -101,57 +101,8 @@ class HomeViewController: UIViewController{
         
         configureLayout()
         
-        // Core Data 확인
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let entity = NSEntityDescription.entity(forEntityName: "UserInfoEntity", in: context)
-        
-        let zero = UserModel(id: "zero123",
-                             password: "123123",
-                             name: "조영현",
-                             age: 31,
-                             goal: ["iOS 개발자 되기",
-                                    "Clean Code 작성하기",
-                                    "꾸준히 성장하기"])
-        
-        // enetity가 nil이 아닌 경우에만 실행하기 위해 옵셔널 바인딩을 사용한다.
-        if let entity = entity {
-            let user = NSManagedObject(entity: entity, insertInto: context)
-            
-            user.setValue(zero.id, forKey: "id")
-            user.setValue(zero.password, forKey: "password")
-            user.setValue(zero.name, forKey: "name")
-            user.setValue(zero.age, forKey: "age")
-            user.setValue(zero.goal, forKey: "goal")
-            
-            do {
-                try context.save()
-                print("success")
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-        
+        // core Data check
         fetchContact()
-    }
-    
-    func fetchContact() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
-        do {
-            let contact = try context.fetch(UserInfoEntity.fetchRequest()) as! [UserInfoEntity]
-            contact.forEach {
-                print($0.id)
-                print($0.password)
-                print($0.name)
-                print($0.age)
-                print($0.goal)
-            }
-        } catch {
-            print(error.localizedDescription)
-        }
     }
     
     func configureLayout() {
@@ -172,6 +123,7 @@ class HomeViewController: UIViewController{
     }
 }
 
+// CollectionView
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     // UICollectionViewDataSource 메서드 구현
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -247,6 +199,60 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             navigationController?.pushViewController(testCodeViewController, animated: true)
             //            let firstViewController = FirstViewController()
             //            navigationController?.pushViewController(firstViewController, animated: true)
+        }
+    }
+}
+
+// Core Data
+extension HomeViewController {
+    func saveCoreData() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let entity = NSEntityDescription.entity(forEntityName: "UserInfoEntity", in: context)
+        
+        let zero = UserModel(id: "zero123",
+                             password: "123123",
+                             name: "조영현",
+                             age: 31,
+                             goal: ["iOS 개발자 되기",
+                                    "Clean Code 작성하기",
+                                    "꾸준히 성장하기"])
+        
+        // enetity가 nil이 아닌 경우에만 실행하기 위해 옵셔널 바인딩을 사용한다.
+        if let entity = entity {
+            let user = NSManagedObject(entity: entity, insertInto: context)
+            
+            user.setValue(zero.id, forKey: "id")
+            user.setValue(zero.password, forKey: "password")
+            user.setValue(zero.name, forKey: "name")
+            user.setValue(zero.age, forKey: "age")
+            user.setValue(zero.goal, forKey: "goal")
+            
+            do {
+                try context.save()
+                print("success")
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func fetchContact() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        do {
+            let contact = try context.fetch(UserInfoEntity.fetchRequest()) as! [UserInfoEntity]
+            contact.forEach {
+                print($0.id)
+                print($0.password)
+                print($0.name)
+                print($0.age)
+                print($0.goal)
+            }
+        } catch {
+            print(error.localizedDescription)
         }
     }
 }
