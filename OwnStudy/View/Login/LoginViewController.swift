@@ -217,7 +217,7 @@ class LoginViewController: UIViewController {
     @objc func loginButtonTapped() {
         // 서버랑 통신해서, 다음 화면으로 넘어가는 내용 구현
         print("다음 화면으로 넘어가기")
-        showHomeScreen()
+        viewModel.showHomeScreen()
     }
     
     // 리셋버튼이 눌리면 동작하는 함수
@@ -320,34 +320,4 @@ extension LoginViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-}
-
-// Login 관련 기능
-extension LoginViewController {
-    func showHomeScreen() {
-        let homeViewController = HomeViewController()
-        let navigationController = UINavigationController(rootViewController: homeViewController)
-        
-        UIApplication.shared.windows.first?.rootViewController = navigationController
-        UIApplication.shared.windows.first?.makeKeyAndVisible()
-    }
-    
-    //    @objc func loginButtonTapped() {
-    //        guard let id = usernameTextField.text,
-    //              let password = passwordTextField.text else {
-    //            return
-    //        }
-    //
-    //        let credentials = LoginModel(id: id, password: password)
-    //
-    //        viewModel.login(with: credentials) { isLoggedIn in
-    //            if isLoggedIn {
-    //                // 로그인 성공 시 처리
-    //                print("로그인 성공")
-    //            } else {
-    //                // 로그인 실패 시 처리
-    //                print("로그인 실패")
-    //            }
-    //        }
-    //    }
 }

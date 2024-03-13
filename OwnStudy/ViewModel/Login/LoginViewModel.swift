@@ -6,8 +6,17 @@
 //
 
 import Foundation
+import UIKit
 
 class LoginViewModel {
+    func showHomeScreen() {
+        let homeViewController = HomeViewController()
+        let navigationController = UINavigationController(rootViewController: homeViewController)
+        
+        UIApplication.shared.windows.first?.rootViewController = navigationController
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
+    }
+    
     func login(with credentials: LoginModel, completion: @escaping (Bool) -> Void) {
         // 여기서는 로그인 처리 로직을 구현합니다.
         // 예를 들어, 서버에 요청하여 사용자 인증을 확인하고 결과를 반환합니다.
