@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
     // MARK: - 이메일 입력하는 텍스트 뷰
     private lazy var emailTextFieldView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.darkGray
+        view.backgroundColor = AppTheme.Color.TextField.background
         view.layer.cornerRadius = 5
         view.clipsToBounds = true
         view.addSubview(emailTextField)
@@ -27,24 +27,24 @@ class LoginViewController: UIViewController {
     private let emailInfoLabel: UILabel = {
         let label = UILabel()
         label.text = "이메일주소 또는 전화번호"
-        label.font = UIFont.systemFont(ofSize: 18)
-        label.textColor = #colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)
+        label.font = AppTheme.Font.Page.body
+        label.textColor = AppTheme.Color.TextField.placeholder
         return label
     }()
     
     // 로그인 - 이메일 입력 필드
     private lazy var emailTextField: UITextField = {
-        var tf = UITextField()
-        tf.frame.size.height = 48
-        tf.backgroundColor = .clear
-        tf.textColor = .white
-        tf.tintColor = .white
-        tf.autocapitalizationType = .none
-        tf.autocorrectionType = .no
-        tf.spellCheckingType = .no
-        tf.keyboardType = .emailAddress
-        tf.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
-        return tf
+        var textField = UITextField()
+        textField.frame.size.height = 48
+        textField.backgroundColor = .clear
+        textField.textColor = AppTheme.Color.TextField.text
+        textField.tintColor = AppTheme.Color.TextField.text
+        textField.autocapitalizationType = .none
+        textField.autocorrectionType = .no
+        textField.spellCheckingType = .no
+        textField.keyboardType = .emailAddress
+        textField.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
+        return textField
     }()
     
     
@@ -52,7 +52,7 @@ class LoginViewController: UIViewController {
     private lazy var passwordTextFieldView: UIView = {
         let view = UIView()
         //view.frame.size.height = 48
-        view.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+        view.backgroundColor = AppTheme.Color.TextField.background
         view.layer.cornerRadius = 5
         view.clipsToBounds = true
         view.addSubview(passwordTextField)
@@ -65,26 +65,25 @@ class LoginViewController: UIViewController {
     private let passwordInfoLabel: UILabel = {
         let label = UILabel()
         label.text = "비밀번호"
-        label.font = UIFont.systemFont(ofSize: 18)
-        label.textColor = #colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)
+        label.font = AppTheme.Font.Page.body
+        label.textColor = AppTheme.Color.TextField.placeholder
         return label
     }()
     
     // 로그인 - 비밀번호 입력 필드
     private lazy var passwordTextField: UITextField = {
-        let tf = UITextField()
-        tf.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
-        tf.frame.size.height = 48
-        tf.backgroundColor = .clear
-        tf.textColor = .white
-        tf.tintColor = .white
-        tf.autocapitalizationType = .none
-        tf.autocorrectionType = .no
-        tf.spellCheckingType = .no
-        tf.isSecureTextEntry = true
-        tf.clearsOnBeginEditing = false
-        tf.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
-        return tf
+        let textField = UITextField()
+        textField.frame.size.height = 48
+        textField.backgroundColor = .clear
+        textField.textColor = AppTheme.Color.TextField.text
+        textField.tintColor = AppTheme.Color.TextField.text
+        textField.autocapitalizationType = .none
+        textField.autocorrectionType = .no
+        textField.spellCheckingType = .no
+        textField.isSecureTextEntry = true
+        textField.clearsOnBeginEditing = false
+        textField.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
+        return textField
     }()
     
     // 패스워드에 "표시"버튼 비밀번호 가리기 기능
@@ -153,9 +152,8 @@ class LoginViewController: UIViewController {
         [stackView, passwordResetButton].forEach { view.addSubview($0) }
     }
     
-    // 오토레이아웃
+    // Auto Layout
     private func setupAutoLayout() {
-        
         emailInfoLabel.translatesAutoresizingMaskIntoConstraints = false
         emailInfoLabel.leadingAnchor.constraint(equalTo: emailTextFieldView.leadingAnchor, constant: 8).isActive = true
         emailInfoLabel.trailingAnchor.constraint(equalTo: emailTextFieldView.trailingAnchor, constant: -8).isActive = true
@@ -214,6 +212,15 @@ class LoginViewController: UIViewController {
     @objc func loginButtonTapped() {
         // 서버랑 통신해서, 다음 화면으로 넘어가는 내용 구현
         print("다음 화면으로 넘어가기")
+        showHomeScreen()
+    }
+    
+    func showHomeScreen() {
+        let homeViewController = HomeViewController()
+        let navigationController = UINavigationController(rootViewController: homeViewController)
+        
+        UIApplication.shared.windows.first?.rootViewController = navigationController
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
     
     // 리셋버튼이 눌리면 동작하는 함수

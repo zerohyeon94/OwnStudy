@@ -17,7 +17,8 @@ struct AppTheme {
         struct TextField {
             static let background = UIColor.darkGray
             static let placeholder = UIColor.white
-            static let secure = 
+            static let secure = UIColor.white
+            static let text = UIColor.white
         }
         
         struct Button {
