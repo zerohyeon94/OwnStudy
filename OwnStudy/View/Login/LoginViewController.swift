@@ -7,33 +7,34 @@
 
 import Foundation
 import UIKit
+import SnapKit
 
 class LoginViewController: UIViewController {
     // ViewModel 생성
     var viewModel = LoginViewModel()
     
-    // MARK: - 이메일 입력하는 텍스트 뷰
-    private lazy var emailTextFieldView: UIView = {
+    // MARK: - ID 입력하는 텍스트 뷰
+    private lazy var idTextFieldView: UIView = {
         let view = UIView()
         view.backgroundColor = AppTheme.Color.TextField.background
         view.layer.cornerRadius = 5
         view.clipsToBounds = true
-        view.addSubview(emailTextField)
-        view.addSubview(emailInfoLabel)
+        view.addSubview(idTextField)
+        view.addSubview(idInfoLabel)
         return view
     }()
     
-    // "이메일 또는 전화번호" 안내문구
-    private let emailInfoLabel: UILabel = {
+    // 안내문구
+    private let idInfoLabel: UILabel = {
         let label = UILabel()
-        label.text = "이메일주소 또는 전화번호"
+        label.text = "ID"
         label.font = AppTheme.Font.Page.body
         label.textColor = AppTheme.Color.TextField.placeholder
         return label
     }()
     
-    // 로그인 - 이메일 입력 필드
-    private lazy var emailTextField: UITextField = {
+    // 로그인 - ID 입력 필드
+    private lazy var idTextField: UITextField = {
         var textField = UITextField()
         textField.frame.size.height = 48
         textField.backgroundColor = .clear
@@ -61,7 +62,7 @@ class LoginViewController: UIViewController {
         return view
     }()
     
-    // 패스워드텍스트필드의 안내문구
+    // 패스워드 텍스트필드의 안내문구
     private let passwordInfoLabel: UILabel = {
         let label = UILabel()
         label.text = "비밀번호"
@@ -112,12 +113,12 @@ class LoginViewController: UIViewController {
     
     // 이메일텍스트필드, 패스워드, 로그인버튼 스택뷰에 배치
     private lazy var stackView: UIStackView = {
-        let stview = UIStackView(arrangedSubviews: [emailTextFieldView, passwordTextFieldView, loginButton])
-        stview.spacing = 18
-        stview.axis = .vertical
-        stview.distribution = .fillEqually
-        stview.alignment = .fill
-        return stview
+        let stackView = UIStackView(arrangedSubviews: [idTextFieldView, passwordTextFieldView, loginButton])
+        stackView.spacing = 18
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.alignment = .fill
+        return stackView
     }()
     
     // 비밀번호 재설정 버튼
@@ -126,7 +127,7 @@ class LoginViewController: UIViewController {
         button.backgroundColor = .clear
         button.setTitle("비밀번호 재설정", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        button.addTarget(self, action: #selector(resetButtonTapped  ), for: .touchUpInside)
+        button.addTarget(self, action: #selector(resetButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -134,7 +135,7 @@ class LoginViewController: UIViewController {
     private let textViewHeight: CGFloat = 48
     
     // 오토레이아웃 향후 변경을 위한 변수(애니메이션)
-    lazy var emailInfoLabelCenterYConstraint = emailInfoLabel.centerYAnchor.constraint(equalTo: emailTextFieldView.centerYAnchor)
+    lazy var emailInfoLabelCenterYConstraint = idInfoLabel.centerYAnchor.constraint(equalTo: idTextFieldView.centerYAnchor)
     lazy var passwordInfoLabelCenterYConstraint = passwordInfoLabel.centerYAnchor.constraint(equalTo: passwordTextFieldView.centerYAnchor)
     
     override func viewDidLoad() {
@@ -144,83 +145,79 @@ class LoginViewController: UIViewController {
         setupAutoLayout()
     }
     
-    // 셋팅
     private func configure() {
         view.backgroundColor = #colorLiteral(red: 0.07450980392, green: 0.07450980392, blue: 0.07450980392, alpha: 1)
-        emailTextField.delegate = self
+        idTextField.delegate = self
         passwordTextField.delegate = self
         [stackView, passwordResetButton].forEach { view.addSubview($0) }
     }
     
     // Auto Layout
     private func setupAutoLayout() {
-        emailInfoLabel.translatesAutoresizingMaskIntoConstraints = false
-        emailInfoLabel.leadingAnchor.constraint(equalTo: emailTextFieldView.leadingAnchor, constant: 8).isActive = true
-        emailInfoLabel.trailingAnchor.constraint(equalTo: emailTextFieldView.trailingAnchor, constant: -8).isActive = true
-        //emailInfoLabel.centerYAnchor.constraint(equalTo: emailTextFieldView.centerYAnchor).isActive = true
+        // MARK: ID View
+        idInfoLabel.snp.makeConstraints { make in
+            make.leading.equalTo(idTextFieldView.snp.leading).offset(8)
+            make.trailing.equalTo(idTextFieldView.snp.trailing).offset(-8)
+        }
+        // 오토 레이아웃을 위해 변수로 선언 - 추후 값이 변경될 수 있기 때문에
         emailInfoLabelCenterYConstraint.isActive = true
-        
-        emailTextField.translatesAutoresizingMaskIntoConstraints = false
-        emailTextField.topAnchor.constraint(equalTo: emailTextFieldView.topAnchor, constant: 15).isActive = true
-        emailTextField.bottomAnchor.constraint(equalTo: emailTextFieldView.bottomAnchor, constant: -2).isActive = true
-        emailTextField.leadingAnchor.constraint(equalTo: emailTextFieldView.leadingAnchor, constant: 8).isActive = true
-        emailTextField.trailingAnchor.constraint(equalTo: emailTextFieldView.trailingAnchor, constant: -8).isActive = true
-        
-        passwordInfoLabel.translatesAutoresizingMaskIntoConstraints = false
-        passwordInfoLabel.leadingAnchor.constraint(equalTo: passwordTextFieldView.leadingAnchor, constant: 8).isActive = true
-        passwordInfoLabel.trailingAnchor.constraint(equalTo: passwordTextFieldView.trailingAnchor, constant: -8).isActive = true
-        //passwordInfoLabel.centerYAnchor.constraint(equalTo: passwordTextFieldView.centerYAnchor).isActive = true
-        passwordInfoLabelCenterYConstraint.isActive = true
-        
-        
-        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
-        passwordTextField.topAnchor.constraint(equalTo: passwordTextFieldView.topAnchor, constant: 15).isActive = true
-        passwordTextField.bottomAnchor.constraint(equalTo: passwordTextFieldView.bottomAnchor, constant: -2).isActive = true
-        passwordTextField.leadingAnchor.constraint(equalTo: passwordTextFieldView.leadingAnchor, constant: 8).isActive = true
-        passwordTextField.trailingAnchor.constraint(equalTo: passwordTextFieldView.trailingAnchor, constant: -8).isActive = true
-        
-        passwordSecureButton.translatesAutoresizingMaskIntoConstraints = false
-        passwordSecureButton.topAnchor.constraint(equalTo: passwordTextFieldView.topAnchor, constant: 15).isActive = true
-        passwordSecureButton.bottomAnchor.constraint(equalTo: passwordTextFieldView.bottomAnchor, constant: -15).isActive = true
-        passwordSecureButton.trailingAnchor.constraint(equalTo: passwordTextFieldView.trailingAnchor, constant: -8).isActive = true
-        
-        
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
-        stackView.heightAnchor.constraint(equalToConstant: textViewHeight*3 + 36).isActive = true
-        
-        
-        passwordResetButton.translatesAutoresizingMaskIntoConstraints = false
-        passwordResetButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 10).isActive = true
-        passwordResetButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
-        passwordResetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
-        passwordResetButton.heightAnchor.constraint(equalToConstant: textViewHeight).isActive = true
-        
-    }
 
+        idTextField.snp.makeConstraints { make in
+            make.top.equalTo(idTextFieldView.snp.top).offset(15)
+            make.bottom.equalTo(idTextFieldView.snp.bottom).offset(-2)
+            make.leading.equalTo(idTextFieldView.snp.leading).offset(8)
+            make.trailing.equalTo(idTextFieldView.snp.trailing).offset(-8)
+        }
+
+        // MARK: Password View
+        passwordInfoLabel.snp.makeConstraints { make in
+            make.leading.equalTo(passwordTextFieldView.snp.leading).offset(8)
+            make.trailing.equalTo(passwordTextFieldView.snp.trailing).offset(-8)
+        }
+        passwordInfoLabelCenterYConstraint.isActive = true
+
+        // passwordTextField
+        passwordTextField.snp.makeConstraints { make in
+            make.top.equalTo(passwordTextFieldView.snp.top).offset(15)
+            make.bottom.equalTo(passwordTextFieldView.snp.bottom).offset(-2)
+            make.leading.equalTo(passwordTextFieldView.snp.leading).offset(8)
+            make.trailing.equalTo(passwordTextFieldView.snp.trailing).offset(-8)
+        }
+
+        // passwordSecureButton
+        passwordSecureButton.snp.makeConstraints { make in
+            make.top.equalTo(passwordTextFieldView.snp.top).offset(15)
+            make.bottom.equalTo(passwordTextFieldView.snp.bottom).offset(-15)
+            make.trailing.equalTo(passwordTextFieldView.snp.trailing).offset(-8)
+        }
+
+        // MARK: Id, Password View, Login Button, PasswordReset Button
+        stackView.snp.makeConstraints { make in
+            make.centerX.equalTo(view.snp.centerX)
+            make.centerY.equalTo(view.snp.centerY)
+            make.leading.equalTo(view.snp.leading).offset(30)
+            make.trailing.equalTo(view.snp.trailing).offset(-30)
+            make.height.equalTo(textViewHeight * 3 + 36)
+        }
+        
+        passwordResetButton.snp.makeConstraints { make in
+            make.top.equalTo(stackView.snp.bottom).offset(10)
+            make.leading.equalTo(view.snp.leading).offset(30)
+            make.trailing.equalTo(view.snp.trailing).offset(-30)
+            make.height.equalTo(textViewHeight)
+        }
+    }
     
     // MARK: - 비밀번호 가리기 모드 켜고 끄기
     @objc private func passwordSecureModeSetting() {
-        // 이미 텍스트필드에 내장되어 있는 기능
         passwordTextField.isSecureTextEntry.toggle()
     }
     
-    // 로그인 버튼 누르면 동작하는 함수
+    // 로그인
     @objc func loginButtonTapped() {
         // 서버랑 통신해서, 다음 화면으로 넘어가는 내용 구현
         print("다음 화면으로 넘어가기")
         showHomeScreen()
-    }
-    
-    func showHomeScreen() {
-        let homeViewController = HomeViewController()
-        let navigationController = UINavigationController(rootViewController: homeViewController)
-        
-        UIApplication.shared.windows.first?.rootViewController = navigationController
-        UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
     
     // 리셋버튼이 눌리면 동작하는 함수
@@ -245,35 +242,15 @@ class LoginViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
-    
-//    @objc func loginButtonTapped() {
-//        guard let id = usernameTextField.text,
-//              let password = passwordTextField.text else {
-//            return
-//        }
-//        
-//        let credentials = LoginModel(id: id, password: password)
-//        
-//        viewModel.login(with: credentials) { isLoggedIn in
-//            if isLoggedIn {
-//                // 로그인 성공 시 처리
-//                print("로그인 성공")
-//            } else {
-//                // 로그인 실패 시 처리
-//                print("로그인 실패")
-//            }
-//        }
-//    }
 }
 
 extension LoginViewController: UITextFieldDelegate {
     // MARK: - 텍스트필드 편집 시작할때의 설정 - 문구가 위로올라가면서 크기 작아지고, 오토레이아웃 업데이트
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
-        if textField == emailTextField {
-            emailTextFieldView.backgroundColor = #colorLiteral(red: 0.2972877622, green: 0.2973434925, blue: 0.297280401, alpha: 1)
-            emailInfoLabel.font = UIFont.systemFont(ofSize: 11)
+        if textField == idTextField {
+            idTextFieldView.backgroundColor = #colorLiteral(red: 0.2972877622, green: 0.2973434925, blue: 0.297280401, alpha: 1)
+            idInfoLabel.font = UIFont.systemFont(ofSize: 11)
             // 오토레이아웃 업데이트
             emailInfoLabelCenterYConstraint.constant = -13
         }
@@ -294,11 +271,11 @@ extension LoginViewController: UITextFieldDelegate {
     // 텍스트필드 편집 종료되면 백그라운드 색 변경 (글자가 한개도 입력 안되었을때는 되돌리기)
     func textFieldDidEndEditing(_ textField: UITextField) {
         
-        if textField == emailTextField {
-            emailTextFieldView.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+        if textField == idTextField {
+            idTextFieldView.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
             // 빈칸이면 원래로 되돌리기
-            if emailTextField.text == "" {
-                emailInfoLabel.font = UIFont.systemFont(ofSize: 18)
+            if idTextField.text == "" {
+                idInfoLabel.font = UIFont.systemFont(ofSize: 18)
                 emailInfoLabelCenterYConstraint.constant = 0
             }
         }
@@ -326,7 +303,7 @@ extension LoginViewController: UITextFieldDelegate {
             }
         }
         guard
-            let email = emailTextField.text, !email.isEmpty,
+            let email = idTextField.text, !email.isEmpty,
             let password = passwordTextField.text, !password.isEmpty
         else {
             loginButton.backgroundColor = .clear
@@ -343,4 +320,34 @@ extension LoginViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+}
+
+// Login 관련 기능
+extension LoginViewController {
+    func showHomeScreen() {
+        let homeViewController = HomeViewController()
+        let navigationController = UINavigationController(rootViewController: homeViewController)
+        
+        UIApplication.shared.windows.first?.rootViewController = navigationController
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
+    }
+    
+    //    @objc func loginButtonTapped() {
+    //        guard let id = usernameTextField.text,
+    //              let password = passwordTextField.text else {
+    //            return
+    //        }
+    //
+    //        let credentials = LoginModel(id: id, password: password)
+    //
+    //        viewModel.login(with: credentials) { isLoggedIn in
+    //            if isLoggedIn {
+    //                // 로그인 성공 시 처리
+    //                print("로그인 성공")
+    //            } else {
+    //                // 로그인 실패 시 처리
+    //                print("로그인 실패")
+    //            }
+    //        }
+    //    }
 }
