@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 import SnapKit
 
-class LoginViewController: UIViewController {
+// final 키워드
+final class LoginViewController: UIViewController {
     // ViewModel 생성
     var viewModel = LoginViewModel()
     
@@ -19,6 +20,7 @@ class LoginViewController: UIViewController {
         view.backgroundColor = AppTheme.Color.TextField.background
         view.layer.cornerRadius = 5
         view.clipsToBounds = true
+        // View에 addSubview를 쓰기위해서 lazy var를 사용한다.
         view.addSubview(idTextField)
         view.addSubview(idInfoLabel)
         return view
@@ -113,6 +115,7 @@ class LoginViewController: UIViewController {
     
     // 이메일텍스트필드, 패스워드, 로그인버튼 스택뷰에 배치
     private lazy var stackView: UIStackView = {
+        // stackView 내의 arrangedSubviews라는 생성자
         let stackView = UIStackView(arrangedSubviews: [idTextFieldView, passwordTextFieldView, loginButton])
         stackView.spacing = 18
         stackView.axis = .vertical
@@ -134,7 +137,7 @@ class LoginViewController: UIViewController {
     // 3개의 각 텍스트필드 및 로그인 버튼의 높이 설정
     private let textViewHeight: CGFloat = 48
     
-    // 오토레이아웃 향후 변경을 위한 변수(애니메이션)
+    // 오토레이아웃 향후 변경을 위한 변수(애니메이션) -> 동적으로 Auto layout을 조절할 수 있다.
     lazy var emailInfoLabelCenterYConstraint = idInfoLabel.centerYAnchor.constraint(equalTo: idTextFieldView.centerYAnchor)
     lazy var passwordInfoLabelCenterYConstraint = passwordInfoLabel.centerYAnchor.constraint(equalTo: passwordTextFieldView.centerYAnchor)
     
@@ -147,14 +150,18 @@ class LoginViewController: UIViewController {
     
     private func configure() {
         view.backgroundColor = #colorLiteral(red: 0.07450980392, green: 0.07450980392, blue: 0.07450980392, alpha: 1)
+        
+        // TextField의 델리게이트 패턴을 사용하기위해 해당 속성에 self로 지정
+        // 각각의 textField의 대리자가 ViewController가 된다.
         idTextField.delegate = self
         passwordTextField.delegate = self
+        
         [stackView, passwordResetButton].forEach { view.addSubview($0) }
     }
     
     // Auto Layout
     private func setupAutoLayout() {
-        // MARK: ID View
+        // ID View
         idInfoLabel.snp.makeConstraints { make in
             make.leading.equalTo(idTextFieldView.snp.leading).offset(8)
             make.trailing.equalTo(idTextFieldView.snp.trailing).offset(-8)
@@ -169,7 +176,7 @@ class LoginViewController: UIViewController {
             make.trailing.equalTo(idTextFieldView.snp.trailing).offset(-8)
         }
 
-        // MARK: Password View
+        // Password View
         passwordInfoLabel.snp.makeConstraints { make in
             make.leading.equalTo(passwordTextFieldView.snp.leading).offset(8)
             make.trailing.equalTo(passwordTextFieldView.snp.trailing).offset(-8)
@@ -191,7 +198,7 @@ class LoginViewController: UIViewController {
             make.trailing.equalTo(passwordTextFieldView.snp.trailing).offset(-8)
         }
 
-        // MARK: Id, Password View, Login Button, PasswordReset Button
+        // Id, Password View, Login Button, PasswordReset Button
         stackView.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)
             make.centerY.equalTo(view.snp.centerY)
@@ -244,7 +251,8 @@ class LoginViewController: UIViewController {
     }
 }
 
-extension LoginViewController: UITextFieldDelegate {
+// MARK: - UITextFieldDelegate 프로토콜 채택
+extension LoginViewController: UITextFieldDelegate { // 프로토콜을 채택해서 선택적인 요구사항으로 선언되어있는 메서드를 사용해준다.
     // MARK: - 텍스트필드 편집 시작할때의 설정 - 문구가 위로올라가면서 크기 작아지고, 오토레이아웃 업데이트
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
@@ -262,7 +270,7 @@ extension LoginViewController: UITextFieldDelegate {
             passwordInfoLabelCenterYConstraint.constant = -13
         }
         
-        // 실제 레이아웃 변경은 애니메이션으로 줄꺼야
+        // 실제 레이아웃 변경은 애니메이션으로 주는 효과
         UIView.animate(withDuration: 0.3) {
             self.stackView.layoutIfNeeded()
         }
