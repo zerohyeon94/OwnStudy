@@ -14,7 +14,7 @@ protocol TestCodeViewDelegate: AnyObject {
 }
 
 // CS 정보 뷰
-class TestCodeView: UIView {
+final class TestCodeView: UIView {
     
     weak var delegate: TestCodeViewDelegate?
     var viewModel: TestCodeViewModel

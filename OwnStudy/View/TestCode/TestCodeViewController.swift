@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 // CS 정보 뷰컨트롤러
-class TestCodeViewController: UIViewController {
+final class TestCodeViewController: UIViewController {
     var testCodeViewModel: TestCodeViewModel
     var testCodeView: TestCodeView
 
