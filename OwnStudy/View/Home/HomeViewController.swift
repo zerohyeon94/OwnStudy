@@ -12,11 +12,11 @@ import CoreData
 import RxSwift
 
 // ViewModel과 상호작용하여 화면을 구성하는 곳.
-class HomeViewController: UIViewController{
+final class HomeViewController: UIViewController{
     
     let colorArray: [UIColor] = [.red, .blue, .green, .yellow, .orange, .purple]
     
-    var viewModel: HomeViewModel = HomeViewModel()
+    private var viewModel: HomeViewModel = HomeViewModel()
     
     // dummyData
     let csDummyData: CSInfoViewModel = CSInfoViewModel(csInfoModel: CSInfoModel(
@@ -32,7 +32,7 @@ class HomeViewController: UIViewController{
                     TestCode(title: "KVO", isBookmarked: true)]))
     
     // 오늘 날짜. 공부가 유지되는 일차 표시
-    lazy var dateLabel: UILabel = {
+    private lazy var dateLabel: UILabel = {
         let label = UILabel()
         
         label.font = AppTheme.Font.Page.title
@@ -44,7 +44,7 @@ class HomeViewController: UIViewController{
         return label
     }()
     
-    lazy var dDayLabel: UILabel = {
+    private lazy var dDayLabel: UILabel = {
         let label = UILabel()
         
         label.font = AppTheme.Font.Page.title
@@ -68,7 +68,7 @@ class HomeViewController: UIViewController{
     }()
     
     // collectionView를 선언할 때 lazy를 사용하여 초기화
-    lazy var collectionView: UICollectionView = {
+    private lazy var collectionView: UICollectionView = {
         // UICollectionViewFlowLayout 설정
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
