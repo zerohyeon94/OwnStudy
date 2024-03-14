@@ -10,11 +10,11 @@ import UIKit
 import SnapKit
 
 // CS 정보 뷰컨트롤러
-class CSInfoViewController: UIViewController {
+final class CSInfoViewController: UIViewController {
     var csInfoViewModel: CSInfoViewModel
     var csInfoView: CSInfoView
 
-    lazy var dateLabel: UILabel = {
+    private lazy var dateLabel: UILabel = {
         let label = UILabel()
         
         label.font = AppTheme.Font.Page.title

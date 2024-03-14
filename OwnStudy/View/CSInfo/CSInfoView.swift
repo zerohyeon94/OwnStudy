@@ -13,7 +13,7 @@ protocol CSInfoViewDelegate: AnyObject {
 }
 
 // CS 정보 뷰
-class CSInfoView: UIView {
+final class CSInfoView: UIView {
     
     weak var delegate: CSInfoViewDelegate?
     var csInfoViewModel: CSInfoViewModel
