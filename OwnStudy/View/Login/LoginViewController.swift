@@ -113,6 +113,20 @@ final class LoginViewController: UIViewController {
         return button
     }()
     
+    // MARK: - 회원가입 버튼
+    private lazy var signUpButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.backgroundColor = .clear
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+        button.setTitle("회원가입", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.isEnabled = false
+        button.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     // 이메일텍스트필드, 패스워드, 로그인버튼 스택뷰에 배치
     private lazy var stackView: UIStackView = {
         // stackView 내의 arrangedSubviews라는 생성자
@@ -222,6 +236,13 @@ final class LoginViewController: UIViewController {
     
     // 로그인
     @objc func loginButtonTapped() {
+        // 서버랑 통신해서, 다음 화면으로 넘어가는 내용 구현
+        print("다음 화면으로 넘어가기")
+        viewModel.showHomeScreen()
+    }
+    
+    // 회원 가입
+    @objc func signUpButtonTapped() {
         // 서버랑 통신해서, 다음 화면으로 넘어가는 내용 구현
         print("다음 화면으로 넘어가기")
         viewModel.showHomeScreen()

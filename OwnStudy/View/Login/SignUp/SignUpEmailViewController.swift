@@ -6,3 +6,9 @@
 //
 
 import Foundation
+import UIKit
+import SnapKit
+
+final class SignUpEmailViewController: UIViewController {
+    
+}

@@ -59,6 +59,8 @@
 		CFE666662BA14888006C341B /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = CFE666652BA14888006C341B /* FirebaseAuthCombine-Community */; };
 		CFE666682BA14888006C341B /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CFE666672BA14888006C341B /* FirebaseFirestore */; };
 		CFE6666A2BA14888006C341B /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CFE666692BA14888006C341B /* FirebaseFirestoreSwift */; };
+		CFFB98B22BB56BDB00B2F1B9 /* SignUpEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFB98B12BB56BDB00B2F1B9 /* SignUpEmailViewController.swift */; };
+		CFFB98B42BB56D4200B2F1B9 /* SignUpTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFB98B32BB56D4200B2F1B9 /* SignUpTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +104,8 @@
 		CFE666562BA0674F006C341B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CFE666592BA06D18006C341B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CFE6665C2BA14561006C341B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CFFB98B12BB56BDB00B2F1B9 /* SignUpEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEmailViewController.swift; sourceTree = "<group>"; };
+		CFFB98B32BB56D4200B2F1B9 /* SignUpTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,9 +302,19 @@
 		CFE666582BA06CF1006C341B /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				CFFB98B02BB56BC300B2F1B9 /* SignUp */,
 				CFE666592BA06D18006C341B /* LoginViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		CFFB98B02BB56BC300B2F1B9 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				CFFB98B12BB56BDB00B2F1B9 /* SignUpEmailViewController.swift */,
+				CFFB98B32BB56D4200B2F1B9 /* SignUpTextField.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,7 +427,9 @@
 				CF4874082B92E0E5003AA724 /* UserModel.swift in Sources */,
 				CFC1E18B2B7D87B500F53745 /* HomeTestCodeCell.swift in Sources */,
 				CF3F46892B6CF56F0064777F /* HomeCommonCell.swift in Sources */,
+				CFFB98B22BB56BDB00B2F1B9 /* SignUpEmailViewController.swift in Sources */,
 				CF00E05B2B70CE1900D36591 /* HomeCSInfoCell.swift in Sources */,
+				CFFB98B42BB56D4200B2F1B9 /* SignUpTextField.swift in Sources */,
 				CFD014B92B4BD87600E15BAC /* HomeViewController.swift in Sources */,
 				CFC1E18E2B7D9F6C00F53745 /* FirstViewController.swift in Sources */,
 				CF3F467C2B6CE1180064777F /* HomeQuizCell.swift in Sources */,
