@@ -10,11 +10,12 @@ import Foundation
 enum TestCodeCellType {
     case delegate
     case kvo
+    case combine
 }
 
-// CS 정보 뷰모델
+// Test 뷰모델
 class TestCodeViewModel {
-    var cellTypes: [TestCodeCellType] = [.delegate, .kvo]
+    var cellTypes: [TestCodeCellType] = [.delegate, .kvo, .combine]
     
     var testCodeModel: TestCodeModel
     
