@@ -33,6 +33,8 @@
 		CF4874082B92E0E5003AA724 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4874072B92E0E5003AA724 /* UserModel.swift */; };
 		CF48741D2B95C2EF003AA724 /* UserInfoEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF48741B2B95C2EF003AA724 /* UserInfoEntity+CoreDataClass.swift */; };
 		CF48741E2B95C2EF003AA724 /* UserInfoEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF48741C2B95C2EF003AA724 /* UserInfoEntity+CoreDataProperties.swift */; };
+		CFB1E7182C219191001DDA11 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = CFB1E7172C219191001DDA11 /* DGCharts */; };
+		CFB1E71A2C219191001DDA11 /* DGChartsDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = CFB1E7192C219191001DDA11 /* DGChartsDynamic */; };
 		CFC1E18B2B7D87B500F53745 /* HomeTestCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC1E18A2B7D87B500F53745 /* HomeTestCodeCell.swift */; };
 		CFC1E18E2B7D9F6C00F53745 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC1E18D2B7D9F6C00F53745 /* FirstViewController.swift */; };
 		CFC1E1902B7DA38400F53745 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC1E18F2B7DA38400F53745 /* SecondViewController.swift */; };
@@ -119,9 +121,11 @@
 				CFE666682BA14888006C341B /* FirebaseFirestore in Frameworks */,
 				CF2402F62B9C6250000DF2D5 /* RxRelay-Dynamic in Frameworks */,
 				CFE6666A2BA14888006C341B /* FirebaseFirestoreSwift in Frameworks */,
+				CFB1E71A2C219191001DDA11 /* DGChartsDynamic in Frameworks */,
 				CF3F46782B6CDBE60064777F /* SnapKit in Frameworks */,
 				CF2402F42B9C6250000DF2D5 /* RxRelay in Frameworks */,
 				CFE666622BA14888006C341B /* FirebaseAnalyticsSwift in Frameworks */,
+				CFB1E7182C219191001DDA11 /* DGCharts in Frameworks */,
 				CF2402F02B9C6250000DF2D5 /* RxCocoa in Frameworks */,
 				CF2402FA2B9C6250000DF2D5 /* RxSwift-Dynamic in Frameworks */,
 				CFE666662BA14888006C341B /* FirebaseAuthCombine-Community in Frameworks */,
@@ -359,6 +363,8 @@
 				CFE666652BA14888006C341B /* FirebaseAuthCombine-Community */,
 				CFE666672BA14888006C341B /* FirebaseFirestore */,
 				CFE666692BA14888006C341B /* FirebaseFirestoreSwift */,
+				CFB1E7172C219191001DDA11 /* DGCharts */,
+				CFB1E7192C219191001DDA11 /* DGChartsDynamic */,
 			);
 			productName = OwnStudy;
 			productReference = CFD014992B4BCAFC00E15BAC /* OwnStudy.app */;
@@ -392,6 +398,7 @@
 				CF3F46762B6CDBE60064777F /* XCRemoteSwiftPackageReference "SnapKit" */,
 				CF2402EA2B9C6250000DF2D5 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				CFE6665E2BA14888006C341B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				CFB1E7162C219191001DDA11 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = CFD0149A2B4BCAFC00E15BAC /* Products */;
 			projectDirPath = "";
@@ -689,6 +696,14 @@
 				minimumVersion = 5.7.0;
 			};
 		};
+		CFB1E7162C219191001DDA11 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ChartsOrg/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
 		CFE6665E2BA14888006C341B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -739,6 +754,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CF3F46762B6CDBE60064777F /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = "SnapKit-Dynamic";
+		};
+		CFB1E7172C219191001DDA11 /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CFB1E7162C219191001DDA11 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
+		};
+		CFB1E7192C219191001DDA11 /* DGChartsDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CFB1E7162C219191001DDA11 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGChartsDynamic;
 		};
 		CFE6665F2BA14888006C341B /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

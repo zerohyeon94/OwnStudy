@@ -1,5 +1,5 @@
 {
-  "originHash" : "4bf75f9a88e9ee74b4f58c292e52aea0f5fcd349dc798e9e8cffa41b4cee4f76",
+  "originHash" : "ab2a87537fb5de0912383cbd7c74f128138440fff375d1b7e041cb1253ea921c",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -17,6 +17,15 @@
       "state" : {
         "revision" : "7d2688de038d5484866d835acb47b379722d610e",
         "version" : "10.19.0"
+      }
+    },
+    {
+      "identity" : "charts",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ChartsOrg/Charts.git",
+      "state" : {
+        "revision" : "dd9c72e3d7e751e769971092a6bd72d39198ae63",
+        "version" : "5.1.0"
       }
     },
     {
