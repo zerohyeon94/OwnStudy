@@ -60,7 +60,7 @@ final class TestCodeView: UIView {
     }
     
     func updateView(with viewModel: TestCodeViewModel) {
-        print("viewModel: \(viewModel.testCodes.count)")
+        print("viewModel.testCodes.count: \(viewModel.testCodes.count)")
         // 뷰모델로부터 받은 데이터를 사용하여 UI 업데이트
         // 예를 들어, 오늘의 퀴즈 표시 여부에 따라 UI를 조절
         if viewModel.shouldDisplayTodayQuiz {
@@ -80,6 +80,7 @@ final class TestCodeView: UIView {
 // MARK: - TableView DataSource
 extension TestCodeView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("viewModel.testCodes.count : \(viewModel.testCodes.count)")
         return viewModel.testCodes.count
     }
     
@@ -124,6 +125,9 @@ extension TestCodeView: UITableViewDelegate {
             break
         case .kvo:
             print("kvo")
+            delegate?.cellSelected(index: index)
+        case .combine:
+            print("combine")
             delegate?.cellSelected(index: index)
         }
     }

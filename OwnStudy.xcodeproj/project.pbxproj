@@ -24,6 +24,7 @@
 		CF2402F62B9C6250000DF2D5 /* RxRelay-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = CF2402F52B9C6250000DF2D5 /* RxRelay-Dynamic */; };
 		CF2402F82B9C6250000DF2D5 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CF2402F72B9C6250000DF2D5 /* RxSwift */; };
 		CF2402FA2B9C6250000DF2D5 /* RxSwift-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = CF2402F92B9C6250000DF2D5 /* RxSwift-Dynamic */; };
+		CF27EB4C2BE8AE3900C430AD /* CombineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27EB4B2BE8AE3900C430AD /* CombineViewController.swift */; };
 		CF3F46782B6CDBE60064777F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CF3F46772B6CDBE60064777F /* SnapKit */; };
 		CF3F467A2B6CDBE60064777F /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = CF3F46792B6CDBE60064777F /* SnapKit-Dynamic */; };
 		CF3F467C2B6CE1180064777F /* HomeQuizCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3F467B2B6CE1180064777F /* HomeQuizCell.swift */; };
@@ -32,6 +33,8 @@
 		CF4874082B92E0E5003AA724 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4874072B92E0E5003AA724 /* UserModel.swift */; };
 		CF48741D2B95C2EF003AA724 /* UserInfoEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF48741B2B95C2EF003AA724 /* UserInfoEntity+CoreDataClass.swift */; };
 		CF48741E2B95C2EF003AA724 /* UserInfoEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF48741C2B95C2EF003AA724 /* UserInfoEntity+CoreDataProperties.swift */; };
+		CFB1E7182C219191001DDA11 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = CFB1E7172C219191001DDA11 /* DGCharts */; };
+		CFB1E71A2C219191001DDA11 /* DGChartsDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = CFB1E7192C219191001DDA11 /* DGChartsDynamic */; };
 		CFC1E18B2B7D87B500F53745 /* HomeTestCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC1E18A2B7D87B500F53745 /* HomeTestCodeCell.swift */; };
 		CFC1E18E2B7D9F6C00F53745 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC1E18D2B7D9F6C00F53745 /* FirstViewController.swift */; };
 		CFC1E1902B7DA38400F53745 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC1E18F2B7DA38400F53745 /* SecondViewController.swift */; };
@@ -76,6 +79,7 @@
 		CF00E0602B71F49800D36591 /* CSInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSInfoView.swift; sourceTree = "<group>"; };
 		CF00E0622B71F4AF00D36591 /* CSInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSInfoViewController.swift; sourceTree = "<group>"; };
 		CF00E0642B72150600D36591 /* CSInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSInfoCell.swift; sourceTree = "<group>"; };
+		CF27EB4B2BE8AE3900C430AD /* CombineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineViewController.swift; sourceTree = "<group>"; };
 		CF3F467B2B6CE1180064777F /* HomeQuizCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeQuizCell.swift; sourceTree = "<group>"; };
 		CF3F46842B6CEEF70064777F /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		CF3F46882B6CF56F0064777F /* HomeCommonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCommonCell.swift; sourceTree = "<group>"; };
@@ -117,9 +121,11 @@
 				CFE666682BA14888006C341B /* FirebaseFirestore in Frameworks */,
 				CF2402F62B9C6250000DF2D5 /* RxRelay-Dynamic in Frameworks */,
 				CFE6666A2BA14888006C341B /* FirebaseFirestoreSwift in Frameworks */,
+				CFB1E71A2C219191001DDA11 /* DGChartsDynamic in Frameworks */,
 				CF3F46782B6CDBE60064777F /* SnapKit in Frameworks */,
 				CF2402F42B9C6250000DF2D5 /* RxRelay in Frameworks */,
 				CFE666622BA14888006C341B /* FirebaseAnalyticsSwift in Frameworks */,
+				CFB1E7182C219191001DDA11 /* DGCharts in Frameworks */,
 				CF2402F02B9C6250000DF2D5 /* RxCocoa in Frameworks */,
 				CF2402FA2B9C6250000DF2D5 /* RxSwift-Dynamic in Frameworks */,
 				CFE666662BA14888006C341B /* FirebaseAuthCombine-Community in Frameworks */,
@@ -160,6 +166,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CF27EB4A2BE8ACB000C430AD /* Combine */ = {
+			isa = PBXGroup;
+			children = (
+				CF27EB4B2BE8AE3900C430AD /* CombineViewController.swift */,
+			);
+			path = Combine;
 			sourceTree = "<group>";
 		};
 		CF3F467D2B6CEDE40064777F /* Font */ = {
@@ -203,6 +217,7 @@
 				CFC1E19A2B8328AD00F53745 /* TestCodeCell.swift */,
 				CFC1E1912B83240900F53745 /* KVO */,
 				CFC1E18C2B7D9F5000F53745 /* Delegate */,
+				CF27EB4A2BE8ACB000C430AD /* Combine */,
 			);
 			path = TestCode;
 			sourceTree = "<group>";
@@ -348,6 +363,8 @@
 				CFE666652BA14888006C341B /* FirebaseAuthCombine-Community */,
 				CFE666672BA14888006C341B /* FirebaseFirestore */,
 				CFE666692BA14888006C341B /* FirebaseFirestoreSwift */,
+				CFB1E7172C219191001DDA11 /* DGCharts */,
+				CFB1E7192C219191001DDA11 /* DGChartsDynamic */,
 			);
 			productName = OwnStudy;
 			productReference = CFD014992B4BCAFC00E15BAC /* OwnStudy.app */;
@@ -381,6 +398,7 @@
 				CF3F46762B6CDBE60064777F /* XCRemoteSwiftPackageReference "SnapKit" */,
 				CF2402EA2B9C6250000DF2D5 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				CFE6665E2BA14888006C341B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				CFB1E7162C219191001DDA11 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = CFD0149A2B4BCAFC00E15BAC /* Products */;
 			projectDirPath = "";
@@ -445,6 +463,7 @@
 				CF00E05E2B71F45F00D36591 /* CSInfoViewModel.swift in Sources */,
 				CFD0149F2B4BCAFC00E15BAC /* SceneDelegate.swift in Sources */,
 				CFC1E1992B83289B00F53745 /* TestCodeView.swift in Sources */,
+				CF27EB4C2BE8AE3900C430AD /* CombineViewController.swift in Sources */,
 				CF48741D2B95C2EF003AA724 /* UserInfoEntity+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -677,6 +696,14 @@
 				minimumVersion = 5.7.0;
 			};
 		};
+		CFB1E7162C219191001DDA11 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ChartsOrg/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
 		CFE6665E2BA14888006C341B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -727,6 +754,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CF3F46762B6CDBE60064777F /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = "SnapKit-Dynamic";
+		};
+		CFB1E7172C219191001DDA11 /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CFB1E7162C219191001DDA11 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
+		};
+		CFB1E7192C219191001DDA11 /* DGChartsDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CFB1E7162C219191001DDA11 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGChartsDynamic;
 		};
 		CFE6665F2BA14888006C341B /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

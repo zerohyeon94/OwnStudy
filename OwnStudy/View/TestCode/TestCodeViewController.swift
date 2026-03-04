@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-// CS 정보 뷰컨트롤러
+// Test 뷰컨트롤러
 final class TestCodeViewController: UIViewController {
     var testCodeViewModel: TestCodeViewModel
     var testCodeView: TestCodeView
@@ -27,7 +27,7 @@ final class TestCodeViewController: UIViewController {
     }()
     
     init(testCodeViewModel: TestCodeViewModel) {
-        print("csInfoViewModel: \(testCodeViewModel.testCodes)")
+        print("testCodeViewModel: \(testCodeViewModel.testCodes)")
         self.testCodeViewModel = testCodeViewModel
         self.testCodeView = TestCodeView(testCodeViewModel: testCodeViewModel)
 
@@ -45,7 +45,7 @@ final class TestCodeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad")
+        print("[TestCodeViewController] viewDidLoad")
         view.backgroundColor = .white
         testCodeView.delegate = self
 
@@ -93,6 +93,10 @@ extension TestCodeViewController: TestCodeViewDelegate {
             print("kvo")
             let kvoViewController = KVOViewController()
             navigationController?.pushViewController(kvoViewController, animated: true)
+        case .combine:
+            print("combine")
+            let combineViewController = CombineViewController()
+            navigationController?.pushViewController(combineViewController, animated: true)
         }
     }
 }
